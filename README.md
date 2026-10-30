@@ -1,6 +1,22 @@
 # ClickDeck
 
-Macropad USB com 8 botões (Arduino Pro Micro) e uma app Windows para escolher o que cada botão faz.
+Macropad USB com 8 botões (Arduino Pro Micro) e uma app Windows para escolher o que cada botão faz, com uma barra de 8 LEDs controlada a partir do PC. Inclui o firmware, a app, a caixa e as capas para imprimir em 3D.
+
+## Funcionalidades
+
+- 8 botões que a Pro Micro envia como teclado USB (F13–F20); a app trata-os como atalhos globais, sem administrador.
+- Cada botão pode abrir um programa ou ficheiro, um site, correr um comando, enviar um atalho de teclado, ou abrir/focar uma app.
+- **Perfis por aplicação:** as teclas mudam sozinhas conforme a janela que está à frente (por exemplo, outras ações no Fusion 360).
+- Nome e cor da capa por tecla, para coincidir com as capas impressas de várias cores.
+- **Barra de LEDs WS2812** controlada pela app: cores das teclas, uma cor por LED, cor única, arco-íris, respirar, brilho e clarão ao premir.
+- Ícone na bandeja, início com o Windows, uma só instância, seletor de porta COM.
+- Caixa e capas MX em STEP/STL (6 e 8 botões), geradas por scripts Python.
+
+## Estado
+
+- Testado: arranque da app, simulação, ações, perfis, deteção da placa e envio das cores (resposta `CLICKDECK 1` na porta série).
+- Por confirmar em hardware completo: botões soldados na caixa e a barra de LEDs montada. A caixa ainda não tem sítio para a barra.
+- O firmware não foi compilado fora do Arduino IDE; precisa das bibliotecas Bounce2 e Adafruit NeoPixel.
 
 ## Material e ligações
 
@@ -84,6 +100,20 @@ python main.py
 - Modo HID: a app regista F13–F20 como hotkeys globais (`RegisterHotKey`, sem administrador). Se outra app já as usa, a barra de estado avisa quais falharam.
 - Modo Série: serve para placas sem USB nativo (Uno/Nano) que enviem `D1`…`D8` / `U1`…`U8` a 9600 baud. Com a Pro Micro usa o modo HID.
 
+## Protocolo das luzes
+
+A app e o firmware falam por linhas de texto na porta série virtual USB (115200 baud, terminadas em `
+`):
+
+| Comando | Efeito |
+|---------|--------|
+| `?` | a placa responde `CLICKDECK 1` (a app usa isto para a encontrar) |
+| `M0`…`M4` | modo: 0 desligado, 1 cores das teclas, 2 cor única, 3 arco-íris, 4 respirar |
+| `B0`…`B255` | brilho |
+| `Crrggbb` | cor única (hex) |
+| `K1`…`K8` + `rrggbb` | cor do LED n |
+| `R0` / `R1` | acender ao premir desligado / ligado |
+
 ## Caixa 3D e capas
 
 Em `case/` (STEP e STL): `clickdeck_8btn_base/placa/montagem` (8 botões, 4×2) e `clickdeck_keycaps_8` (folha de capas). Também existem as versões de 6 botões. Parâmetros nos scripts `make_case.py` e `make_keycaps.py` (`pip install build123d`).
@@ -109,5 +139,9 @@ app/clickdeck/listener.py   hotkeys F13–F20 / série / simulação
 app/clickdeck/gui.py        janela de configuração
 app/clickdeck/tray.py       ícone da bandeja
 app/clickdeck/autostart.py  iniciar com o Windows
-3d/                         placa e keycaps
+app/clickdeck/leds.py       controlo da barra de LEDs pela porta série
+app/clickdeck/foreground.py janela ativa (perfis por aplicação)
+app/clickdeck/singleton.py  uma só instância
+app/clickdeck/icon.py       ícone da app
+case/                       caixa e capas (STEP/STL) e scripts que as geram
 ```

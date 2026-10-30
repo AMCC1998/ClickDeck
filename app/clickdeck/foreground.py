@@ -21,8 +21,20 @@ kernel32.CloseHandle.argtypes = [wintypes.HANDLE]
 PROCESS_QUERY_LIMITED_INFORMATION = 0x1000
 
 
-def foreground():
-    """(pid, nome do .exe, título) da janela ativa. Valores vazios quando não for possível ler."""
+def exe_path(pid: int) -> str:
+    """Caminho completo do .exe do processo, ou "" se não for possível ler."""
+    handle = kernel32.OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION, False, pid)
+    if not handle:
+        return ""
+    size = wintypes.DWORD(1040)
+    path = ctypes.create_unicode_buffer(1040)
+    ok = kernel32.QueryFullProcessImageNameW(handle, 0, path, ctypes.byref(size))
+    kernel32.CloseHandle(handle)
+    return path.value if ok else ""
+
+
+def foreground_full():
+    """(pid, caminho completo do .exe, título) da janela ativa. Valores vazios quando não for possível ler."""
     hwnd = user32.GetForegroundWindow()
     if not hwnd:
         return 0, "", ""
@@ -31,15 +43,13 @@ def foreground():
     length = user32.GetWindowTextLengthW(hwnd)
     title = ctypes.create_unicode_buffer(length + 1)
     user32.GetWindowTextW(hwnd, title, length + 1)
-    exe = ""
-    handle = kernel32.OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION, False, pid.value)
-    if handle:
-        size = wintypes.DWORD(1040)
-        path = ctypes.create_unicode_buffer(1040)
-        if kernel32.QueryFullProcessImageNameW(handle, 0, path, ctypes.byref(size)):
-            exe = os.path.basename(path.value)
-        kernel32.CloseHandle(handle)
-    return pid.value, exe, title.value
+    return pid.value, exe_path(pid.value), title.value
+
+
+def foreground():
+    """(pid, nome do .exe, título) da janela ativa. Valores vazios quando não for possível ler."""
+    pid, path, title = foreground_full()
+    return pid, os.path.basename(path), title
 
 
 def matches(match: str, exe: str, title: str) -> bool:

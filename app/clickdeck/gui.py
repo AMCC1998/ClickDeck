@@ -35,7 +35,7 @@ PLACEHOLDERS = {
     "command": ("ex: shutdown /l", ""),
     "hotkey": ("ex: ctrl+shift+m", ""),
     "click": ("grava com 🎯 ou escreve ex: R 812,455; @34,88", ""),
-    "focus": ("C:\\...\\programa.exe (se não estiver aberto)", "ex: Spotify"),
+    "focus": ("C:\\...\\programa.exe (se não estiver aberto)", "ex: Spotify ou Spotify.exe"),
 }
 SWATCHES_PER_ROW = 6
 COLUMNS = 4 if NUM_BUTTONS > 6 else 3
@@ -329,6 +329,8 @@ class ConfigWindow:
         self.e1.bind("<KeyRelease>", lambda _e: self._edited())
         self.side_btn = ctk.CTkButton(self.row1, text="", width=40, height=36, fg_color=FIELD,
                                       hover_color=CARD_HOVER, command=self._side_action)
+        self.detect_btn = ctk.CTkButton(self.row1, text="🎯", width=40, height=36, fg_color=FIELD,
+                                        hover_color=CARD_HOVER, command=self._detect_target)
         self.l2 = ctk.CTkLabel(self.fields, text="", text_color=MUTED, font=ctk.CTkFont(size=12))
         self.e2 = ctk.CTkEntry(self.fields, fg_color=FIELD, border_width=0, height=36)
         self.e2.bind("<KeyRelease>", lambda _e: self._edited())
@@ -385,6 +387,7 @@ class ConfigWindow:
         for w in (self.l1, self.row1, self.l2, self.e2):
             w.pack_forget()
         self.side_btn.pack_forget()
+        self.detect_btn.pack_forget()
         _, label1, label2 = ACTION_TYPES[b["type"]]
         ph1, ph2 = PLACEHOLDERS.get(b["type"], ("", ""))
         if label1:
@@ -395,6 +398,8 @@ class ConfigWindow:
             if b["type"] in ("program", "focus"):
                 self.side_btn.configure(text="📂")
                 self.side_btn.pack(side="left", padx=(6, 0))
+                if b["type"] == "focus":
+                    self.detect_btn.pack(side="left", padx=(6, 0))
             elif b["type"] in ("hotkey", "click"):
                 self.side_btn.configure(text="⏺" if b["type"] == "hotkey" else "🎯")
                 self.side_btn.pack(side="left", padx=(6, 0))
@@ -668,6 +673,21 @@ class ConfigWindow:
         if self.pidx:
             self.profiles[self.pidx]["match"] = self.e_match.get().strip()
             self._schedule_save()
+
+    def _detect_target(self):
+        self.set_status("Muda agora para o programa que queres focar. A detetar daqui a 4 segundos…")
+        self.root.after(4000, self._detect_target_done)
+
+    def _detect_target_done(self):
+        pid, path, title = foreground.foreground_full()
+        if not path or pid == os.getpid():
+            self.set_status("Não detetei nenhum programa: muda para ele durante os 4 segundos e tenta de novo.",
+                            error=True)
+            return
+        self._set_entry(self.e1, path)
+        self._set_entry(self.e2, os.path.basename(path))
+        self._edited()
+        self.set_status(f"Detetado: {os.path.basename(path)} ({title[:40]})")
 
     def _detect_app(self):
         self.set_status("Muda agora para a app que queres (ex: Fusion). A detetar daqui a 4 segundos…")

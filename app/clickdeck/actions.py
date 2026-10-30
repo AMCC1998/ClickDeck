@@ -1,12 +1,15 @@
 """Execução das ações dos botões. Qualquer falha levanta ActionError com mensagem legível."""
 
 import ctypes
+import os
 import re
 import subprocess
 import time
 import webbrowser
 from ctypes import wintypes
 from urllib.parse import urlparse
+
+from . import foreground
 
 user32 = ctypes.windll.user32
 shell32 = ctypes.windll.shell32
@@ -248,7 +251,10 @@ def _find_window(title: str):
             if length:
                 buf = ctypes.create_unicode_buffer(length + 1)
                 user32.GetWindowTextW(hwnd, buf, length + 1)
-                if needle in buf.value.lower():
+                pid = wintypes.DWORD()
+                user32.GetWindowThreadProcessId(hwnd, ctypes.byref(pid))
+                exe = os.path.basename(foreground.exe_path(pid.value)).lower()
+                if needle in buf.value.lower() or (needle.endswith(".exe") and needle == exe):
                     found.append(hwnd)
                     return False
         return True
@@ -259,7 +265,7 @@ def _find_window(title: str):
 
 def _focus(target, extra):
     if not extra:
-        raise ActionError("Indica parte do título da janela a procurar.")
+        raise ActionError("Indica parte do título da janela ou o nome do .exe (ex: Fusion360.exe).")
     hwnd = _find_window(extra)
     if hwnd:
         if user32.IsIconic(hwnd):

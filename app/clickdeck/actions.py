@@ -140,14 +140,33 @@ def _hotkey(target, extra):
         _key_event(vk, up=True)
 
 
-# ---- clique numa posição da janela -----------------------------------------------
+# ---- cliques numa janela ----------------------------------------------------------
+# Sequência em texto, passos separados por «;»:
+#   x,y        clique esquerdo em x,y desde o canto da janela
+#   R x,y      o mesmo com o botão direito (L = esquerdo, é o por omissão)
+#   @dx,dy     posição relativa ao clique anterior (para menus que abrem junto ao cursor)
+#   w300       espera 300 ms
+# Ex: «R 812,455; @34,88» = clique direito e depois no item do menu que aparece.
+
+VK_RBUTTON = 0x02
+MOUSEEVENTF_RIGHTDOWN = 0x0008
+MOUSEEVENTF_RIGHTUP = 0x0010
+STEP_PAUSE = 0.25
+_STEP = re.compile(r"(?:(?P<btn>[LR])\s+)?(?P<rel>@)?\s*(?P<x>-?\d+)\s*,\s*(?P<y>-?\d+)", re.IGNORECASE)
+
+
+def mouse_buttons() -> tuple:
+    """(esquerdo premido, direito premido)."""
+    return (bool(user32.GetAsyncKeyState(VK_LBUTTON) & 0x8000),
+            bool(user32.GetAsyncKeyState(VK_RBUTTON) & 0x8000))
+
 
 def left_button_down() -> bool:
-    return bool(user32.GetAsyncKeyState(VK_LBUTTON) & 0x8000)
+    return mouse_buttons()[0]
 
 
-def cursor_in_window():
-    """(pid da janela sob o cursor, «x,y» relativo ao canto da janela) ou None."""
+def cursor_info():
+    """(pid, janela, (x, y) no ecrã, (x, y) desde o canto da janela) da janela sob o cursor, ou None."""
     pt = _POINT()
     user32.GetCursorPos(ctypes.byref(pt))
     hwnd = user32.WindowFromPoint(pt)
@@ -158,31 +177,60 @@ def cursor_in_window():
     user32.GetWindowRect(hwnd, ctypes.byref(rect))
     pid = wintypes.DWORD()
     user32.GetWindowThreadProcessId(hwnd, ctypes.byref(pid))
-    return pid.value, f"{pt.x - rect.left},{pt.y - rect.top}"
+    return pid.value, hwnd, (pt.x, pt.y), (pt.x - rect.left, pt.y - rect.top)
+
+
+def _parse_steps(target: str) -> list:
+    steps = []
+    for raw in target.split(";"):
+        raw = raw.strip()
+        if not raw:
+            continue
+        w = re.fullmatch(r"w\s*(\d+)", raw, re.IGNORECASE)
+        if w:
+            steps.append(("wait", int(w.group(1)) / 1000))
+            continue
+        m = _STEP.fullmatch(raw)
+        if not m:
+            raise ActionError(f"Passo inválido: «{raw}». Usa «x,y», «R x,y», «@dx,dy» ou «w300».")
+        steps.append(("click", (m["btn"] or "L").upper(), bool(m["rel"]), int(m["x"]), int(m["y"])))
+    if not any(s[0] == "click" for s in steps):
+        raise ActionError("Grava com 🎯 ou escreve a posição (ex: 120,48).")
+    return steps
 
 
 def _click(target, extra):
-    m = re.fullmatch(r"\s*(-?\d+)\s*,\s*(-?\d+)\s*", target)
-    if not m:
-        raise ActionError("Posição inválida: grava com 🎯 ou escreve «x,y» (pixels desde o canto da janela).")
-    dx, dy = int(m.group(1)), int(m.group(2))
+    steps = _parse_steps(target)
     hwnd = user32.GetForegroundWindow()
     if not hwnd:
         raise ActionError("Não há nenhuma janela à frente onde clicar.")
     rect = wintypes.RECT()
     user32.GetWindowRect(hwnd, ctypes.byref(rect))
-    x, y = rect.left + dx, rect.top + dy
-    if not (rect.left <= x < rect.right and rect.top <= y < rect.bottom):
-        raise ActionError("A posição gravada fica fora da janela (tamanho diferente?). Grava-a de novo.")
     old = _POINT()
     user32.GetCursorPos(ctypes.byref(old))
-    user32.SetCursorPos(x, y)
-    time.sleep(0.05)                    # deixa a app ver o cursor por cima do botão
-    user32.mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, None)
-    time.sleep(0.03)
-    user32.mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, None)
-    time.sleep(0.05)
-    user32.SetCursorPos(old.x, old.y)
+    last = (rect.left, rect.top)
+    try:
+        for n, step in enumerate(steps):
+            if step[0] == "wait":
+                time.sleep(step[1])
+                continue
+            _, button, relative, dx, dy = step
+            x, y = (last[0] + dx, last[1] + dy) if relative else (rect.left + dx, rect.top + dy)
+            if not relative and not (rect.left <= x < rect.right and rect.top <= y < rect.bottom):
+                raise ActionError("A posição gravada fica fora da janela (tamanho diferente?). Grava-a de novo.")
+            user32.SetCursorPos(x, y)
+            time.sleep(0.05)                    # deixa a app ver o cursor por cima do botão
+            down, up = ((MOUSEEVENTF_RIGHTDOWN, MOUSEEVENTF_RIGHTUP) if button == "R"
+                        else (MOUSEEVENTF_LEFTDOWN, MOUSEEVENTF_LEFTUP))
+            user32.mouse_event(down, 0, 0, 0, None)
+            time.sleep(0.03)
+            user32.mouse_event(up, 0, 0, 0, None)
+            last = (x, y)
+            if n < len(steps) - 1 and steps[n + 1][0] != "wait":
+                time.sleep(STEP_PAUSE)          # tempo para o menu aparecer
+    finally:
+        time.sleep(0.05)
+        user32.SetCursorPos(old.x, old.y)
 
 
 # ---- abrir ou focar --------------------------------------------------------------

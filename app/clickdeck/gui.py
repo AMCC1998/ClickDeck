@@ -34,7 +34,7 @@ PLACEHOLDERS = {
     "url": ("https://…", ""),
     "command": ("ex: shutdown /l", ""),
     "hotkey": ("ex: ctrl+shift+m", ""),
-    "click": ("grava com 🎯 ou escreve ex: 120,48", ""),
+    "click": ("grava com 🎯 ou escreve ex: R 812,455; @34,88", ""),
     "focus": ("C:\\...\\programa.exe (se não estiver aberto)", "ex: Spotify"),
 }
 SWATCHES_PER_ROW = 6
@@ -453,27 +453,41 @@ class ConfigWindow:
                 self._edited()
 
     def _record_click(self):
-        """Espera um clique do rato noutra janela e guarda a posição relativa a essa janela."""
-        self.set_status("Vai à janela do programa e clica no botão que queres. A gravar durante 15 segundos…")
-        self._click_deadline = time.time() + 15
-        self._click_armed = False
-        self.root.after(50, self._poll_click)
+        """Grava os cliques seguintes (esquerdo/direito) até 2,5 s sem clicar. Os cliques passam para a app."""
+        self.set_status("Vai à janela do programa e faz os cliques que queres gravar (acaba 2,5 s depois do último).")
+        self._rec = {"steps": [], "first": None, "prev": None, "start": time.time(), "last": time.time(),
+                     "armed": False, "held": (True, True)}
+        self.root.after(20, self._poll_click)
 
     def _poll_click(self):
-        if time.time() > self._click_deadline:
+        r = self._rec
+        now = time.time()
+        left, right = actions.mouse_buttons()
+        if not left and not right:
+            r["armed"] = True                           # só conta depois de largar o clique em «🎯»
+            r["hover"] = actions.cursor_info()          # janela sob o cursor antes do clique (um menu pode abrir logo)
+        if r["armed"] and (left, right) != r["held"] and (left or right):
+            info = r.get("hover") or actions.cursor_info()
+            if info and info[0] != os.getpid():
+                _pid, hwnd, screen, rel = info
+                btn = "R " if right and not left else ""
+                if r["first"] is None or hwnd == r["first"]:
+                    r["first"] = r["first"] or hwnd
+                    r["steps"].append(f"{btn}{rel[0]},{rel[1]}")
+                else:                                   # janela nova (menu): relativo ao clique anterior
+                    r["steps"].append(f"{btn}@{screen[0] - r['prev'][0]},{screen[1] - r['prev'][1]}")
+                r["prev"] = screen
+                r["last"] = now
+        r["held"] = (left, right)
+        if r["steps"] and now - r["last"] > 2.5:
+            self._set_entry(self.e1, "; ".join(r["steps"]))
+            self._edited()
+            self.set_status(f"Gravados {len(r['steps'])} clique(s). Usa «Testar» com a janela à frente.")
+            return
+        if not r["steps"] and now - r["start"] > 15:
             self.set_status("Não detetei nenhum clique: tenta de novo.", error=True)
             return
-        down = actions.left_button_down()
-        if not down:
-            self._click_armed = True                    # só conta depois de largar o clique em «🎯»
-        elif self._click_armed:
-            hit = actions.cursor_in_window()
-            if hit and hit[0] != os.getpid():
-                self._set_entry(self.e1, hit[1])
-                self._edited()
-                self.set_status(f"Posição gravada: {hit[1]}. Usa «Testar» com essa janela à frente.")
-                return
-        self.root.after(30, self._poll_click)
+        self.root.after(20, self._poll_click)
 
     def _stop_recording(self):
         if self._recording:

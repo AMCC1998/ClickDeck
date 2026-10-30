@@ -22,7 +22,7 @@ ACTION_TYPES = {
     "url": ("Abrir URL", "URL", None),
     "command": ("Executar comando", "Comando", None),
     "hotkey": ("Enviar atalho de teclado", "Atalho (ex: ctrl+shift+m)", None),
-    "click": ("Clicar num ponto da janela", "Posição (x,y) desde o canto da janela", None),
+    "click": ("Clicar na janela", "Cliques (x,y desde o canto da janela)", None),
     "focus": ("Abrir ou focar app", "Programa a abrir", "Título da janela contém"),
 }
 

@@ -1,6 +1,6 @@
 # ClickDeck
 
-Macropad USB com 8 botões (Arduino Pro Micro) e uma app Windows para escolher o que cada botão faz, com uma barra de 8 LEDs controlada a partir do PC. Inclui o firmware, a app, a caixa e as capas para imprimir em 3D.
+Macropad USB com 8 botões (Arduino Pro Micro) e uma app Windows para escolher o que cada botão faz, com uma barra de 8 LEDs controlada a partir do PC. Inclui o firmware, a app e os ficheiros 3D para imprimir.
 
 ![A app ClickDeck](docs/app.png)
 
@@ -11,10 +11,10 @@ Não precisas de saber programar. Precisas de um ferro de soldar, de uma impress
 | # | Passo | Tempo |
 |---|-------|-------|
 | 1 | Compra o material (lista abaixo) | - |
-| 2 | Imprime a caixa e as capas (pasta `case/`) | 2-4 h |
+| 2 | Imprime a caixa, a tampa e as capas (pasta `case/`) | 2-4 h |
 | 3 | Carrega o firmware na Pro Micro ([Carregar o firmware](#carregar-o-firmware)) | 10 min |
 | 4 | Solda os botões e a barra de LEDs ([Material e ligações](#material-e-ligações)) | 1 h |
-| 5 | Monta na caixa: switches na placa de cima, Pro Micro na base, 4 parafusos M2 | 15 min |
+| 5 | Monta na caixa: switches na tampa, Pro Micro e ligações dentro da base | 15 min |
 | 6 | Instala a app ([Correr a app](#correr-a-app)) e configura as teclas | 10 min |
 
 Faz o passo 3 antes de soldar: assim confirmas que a placa funciona e que o upload corre bem.
@@ -25,24 +25,22 @@ Faz o passo 3 antes de soldar: assim confirmas que a placa funciona e que o uplo
 |------|-----|-------|
 | Arduino Pro Micro (ATmega32U4) | 1 | Versão 5 V / 16 MHz, com USB-C ou micro-USB. Confirma que é a ATmega32U4: um Nano ou Uno não serve (não faz de teclado USB). |
 | Switches mecânicos MX | 8 | Qualquer marca; os de 3 pinos servem (usam-se só 2 contactos). |
-| Capas MX | 8 | Imprimes tu (ficheiros em `case/`) ou compras. |
+| Capas MX | 8 | Imprimes tu (`case/keycap.stl`) ou compras. |
 | Barra de 8 LEDs WS2812 | 1 | Opcional. Usei a Mateksys 2812-8slim; qualquer fita ou barra WS2812 de 5 V serve (se tiver mais de 8 LEDs, só acendem os 8 primeiros). |
 | Cabo USB com dados | 1 | Cabos só de carga não funcionam. |
 | Fio fino e estanho | - | Um fio GND comum para todos os switches. |
-| Parafusos M2 auto-roscantes | 4 | Para fechar a caixa. |
 | Resistência de 330 Ω | 1 | Opcional, entre D10 e o fio de dados dos LEDs. |
 
 Sem díodos nem resistências para os botões. O preço depende dos fornecedores; a Pro Micro e os switches são o grosso.
 
 ### Impressão 3D
 
-- Ficheiros: `case/clickdeck_8btn_base.stl`, `case/clickdeck_8btn_placa.stl` e `case/clickdeck_keycaps_8.stl` (há versões de 6 botões).
+- Ficheiros em `case/`: `caixa.stl` (base, 93,2 × 78,3 × 24,8 mm), `tampa.stl` (tampa, 90,0 × 73,3 × 14,8 mm) e `keycap.stl` (capa, 18 × 18 × 10 mm; imprime uma por botão).
 - Base com o fundo na mesa. Placa com a face de cima para baixo. Capas de pé, camada de 0,12 a 0,16 mm.
-- Se os switches ficarem folgados ou apertados, muda `SW_CUT` em `case/make_case.py` e gera de novo; se a haste das capas não encaixar, muda `CROSS_L` / `CROSS_W` em `make_keycaps.py`.
+- Confirma com um paquímetro que os switches e a Pro Micro cabem antes de imprimir tudo: imprime primeiro a tampa e experimenta um switch.
 - Se os pinos da Pro Micro vierem soldados para baixo, corta-os rentes antes de montar.
 - Cada capa pode ser impressa na cor que escolheres para essa tecla na app.
 
-![Caixa: placa superior e base](docs/caixa.png)
 
 ## Funcionalidades
 
@@ -52,7 +50,7 @@ Sem díodos nem resistências para os botões. O preço depende dos fornecedores
 - Nome e cor da capa por tecla, para coincidir com as capas impressas de várias cores.
 - **Barra de LEDs WS2812** controlada pela app: cores das teclas, uma cor por LED, cor única, arco-íris, respirar, brilho e clarão ao premir.
 - Ícone na bandeja, início com o Windows, uma só instância, seletor de porta COM.
-- Caixa e capas MX em STEP/STL (6 e 8 botões), geradas por scripts Python.
+- Caixa, tampa e capas para imprimir em 3D (STL).
 
 ## Estado
 
@@ -159,7 +157,7 @@ A app e o firmware falam por linhas de texto na porta série virtual USB (115200
 
 ## Caixa 3D e capas
 
-Em `case/` (STEP e STL): `clickdeck_8btn_base/placa/montagem` (8 botões, 4×2) e `clickdeck_keycaps_8` (folha de capas). Também existem as versões de 6 botões. Parâmetros nos scripts `make_case.py` e `make_keycaps.py` (`pip install build123d`).
+Em `case/` há três ficheiros STL: `caixa.stl` (base), `tampa.stl` (tampa com as aberturas dos switches) e `keycap.stl` (capa de 18 × 18 mm). A caixa ainda não tem sítio para a barra de LEDs.
 
 ## Problemas comuns
 
@@ -200,5 +198,5 @@ app/clickdeck/leds.py       controlo da barra de LEDs pela porta série
 app/clickdeck/foreground.py janela ativa (perfis por aplicação)
 app/clickdeck/singleton.py  uma só instância
 app/clickdeck/icon.py       ícone da app
-case/                       caixa e capas (STEP/STL) e scripts que as geram
+case/                       caixa, tampa e capa (STL)
 ```

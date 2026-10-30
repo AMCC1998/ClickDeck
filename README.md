@@ -2,6 +2,48 @@
 
 Macropad USB com 8 botões (Arduino Pro Micro) e uma app Windows para escolher o que cada botão faz, com uma barra de 8 LEDs controlada a partir do PC. Inclui o firmware, a app, a caixa e as capas para imprimir em 3D.
 
+![A app ClickDeck](docs/app.png)
+
+## Faz o teu em 6 passos
+
+Não precisas de saber programar. Precisas de um ferro de soldar, de uma impressora 3D e de um PC com Windows.
+
+| # | Passo | Tempo |
+|---|-------|-------|
+| 1 | Compra o material (lista abaixo) | - |
+| 2 | Imprime a caixa e as capas (pasta `case/`) | 2-4 h |
+| 3 | Carrega o firmware na Pro Micro ([Carregar o firmware](#carregar-o-firmware)) | 10 min |
+| 4 | Solda os botões e a barra de LEDs ([Material e ligações](#material-e-ligações)) | 1 h |
+| 5 | Monta na caixa: switches na placa de cima, Pro Micro na base, 4 parafusos M2 | 15 min |
+| 6 | Instala a app ([Correr a app](#correr-a-app)) e configura as teclas | 10 min |
+
+Faz o passo 3 antes de soldar: assim confirmas que a placa funciona e que o upload corre bem.
+
+### Lista de compras
+
+| Peça | Qtd | Notas |
+|------|-----|-------|
+| Arduino Pro Micro (ATmega32U4) | 1 | Versão 5 V / 16 MHz, com USB-C ou micro-USB. Confirma que é a ATmega32U4: um Nano ou Uno não serve (não faz de teclado USB). |
+| Switches mecânicos MX | 8 | Qualquer marca; os de 3 pinos servem (usam-se só 2 contactos). |
+| Capas MX | 8 | Imprimes tu (ficheiros em `case/`) ou compras. |
+| Barra de 8 LEDs WS2812 | 1 | Opcional. Usei a Mateksys 2812-8slim; qualquer fita ou barra WS2812 de 5 V serve (se tiver mais de 8 LEDs, só acendem os 8 primeiros). |
+| Cabo USB com dados | 1 | Cabos só de carga não funcionam. |
+| Fio fino e estanho | - | Um fio GND comum para todos os switches. |
+| Parafusos M2 auto-roscantes | 4 | Para fechar a caixa. |
+| Resistência de 330 Ω | 1 | Opcional, entre D10 e o fio de dados dos LEDs. |
+
+Sem díodos nem resistências para os botões. O custo ronda os 15 a 25 €.
+
+### Impressão 3D
+
+- Ficheiros: `case/clickdeck_8btn_base.stl`, `case/clickdeck_8btn_placa.stl` e `case/clickdeck_keycaps_8.stl` (há versões de 6 botões).
+- Base com o fundo na mesa. Placa com a face de cima para baixo. Capas de pé, camada de 0,12 a 0,16 mm.
+- Se os switches ficarem folgados ou apertados, muda `SW_CUT` em `case/make_case.py` e gera de novo; se a haste das capas não encaixar, muda `CROSS_L` / `CROSS_W` em `make_keycaps.py`.
+- Se os pinos da Pro Micro vierem soldados para baixo, corta-os rentes antes de montar.
+- Cada capa pode ser impressa na cor que escolheres para essa tecla na app.
+
+![Caixa: placa superior e base](docs/caixa.png)
+
 ## Funcionalidades
 
 - 8 botões que a Pro Micro envia como teclado USB (F13–F20); a app trata-os como atalhos globais, sem administrador.
@@ -118,6 +160,16 @@ A app e o firmware falam por linhas de texto na porta série virtual USB (115200
 
 Em `case/` (STEP e STL): `clickdeck_8btn_base/placa/montagem` (8 botões, 4×2) e `clickdeck_keycaps_8` (folha de capas). Também existem as versões de 6 botões. Parâmetros nos scripts `make_case.py` e `make_keycaps.py` (`pip install build123d`).
 
+## Problemas comuns
+
+| Sintoma | O que fazer |
+|---------|-------------|
+| O upload falha ou não aparece porta | Cabo só de carga? Experimenta outro. Carrega em Upload e faz curto-circuito RST–GND duas vezes seguidas. |
+| Carrego num botão e nada acontece | Confirma que a app está aberta (ícone na bandeja) e que o modo é «Teclado HID». Se a barra de estado diz que não registou F13–F20, outro programa já as usa. |
+| As luzes não mudam | Vê o texto no cartão «Luzes». Se diz que não consegue abrir a porta, outro programa (por exemplo o Monitor Série do Arduino IDE) está a usá-la. Escolhe a porta no seletor «Porta». |
+| As luzes acendem todas da mesma cor | O firmware antigo não tem luzes: volta a carregar `firmware/clickdeck/clickdeck.ino`. |
+| Um botão faz de outro | Confirma o pino de cada switch na tabela de ligações. |
+
 ## Gerar um .exe
 
 ```bash
@@ -127,6 +179,10 @@ pyinstaller --noconsole --onefile --name ClickDeck main.py
 ```
 
 O executável fica em `app/dist/ClickDeck.exe`. «Iniciar com o Windows» passa a apontar para ele.
+
+## Licença
+
+Código, firmware, scripts e modelos 3D sob a licença [MIT](LICENSE): podes usar, alterar e partilhar à vontade.
 
 ## Estrutura
 

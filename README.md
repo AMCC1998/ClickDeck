@@ -32,7 +32,7 @@ Faz o passo 3 antes de soldar: assim confirmas que a placa funciona e que o uplo
 | Parafusos M2 auto-roscantes | 4 | Para fechar a caixa. |
 | Resistência de 330 Ω | 1 | Opcional, entre D10 e o fio de dados dos LEDs. |
 
-Sem díodos nem resistências para os botões. O custo ronda os 15 a 25 €.
+Sem díodos nem resistências para os botões. O preço depende dos fornecedores; a Pro Micro e os switches são o grosso.
 
 ### Impressão 3D
 
@@ -167,7 +167,7 @@ Em `case/` (STEP e STL): `clickdeck_8btn_base/placa/montagem` (8 botões, 4×2) 
 | O upload falha ou não aparece porta | Cabo só de carga? Experimenta outro. Carrega em Upload e faz curto-circuito RST–GND duas vezes seguidas. |
 | Carrego num botão e nada acontece | Confirma que a app está aberta (ícone na bandeja) e que o modo é «Teclado HID». Se a barra de estado diz que não registou F13–F20, outro programa já as usa. |
 | As luzes não mudam | Vê o texto no cartão «Luzes». Se diz que não consegue abrir a porta, outro programa (por exemplo o Monitor Série do Arduino IDE) está a usá-la. Escolhe a porta no seletor «Porta». |
-| As luzes acendem todas da mesma cor | O firmware antigo não tem luzes: volta a carregar `firmware/clickdeck/clickdeck.ino`. |
+| As luzes não respondem de todo | A placa pode ter firmware sem luzes: volta a carregar `firmware/clickdeck/clickdeck.ino` (precisa da biblioteca Adafruit NeoPixel). |
 | Um botão faz de outro | Confirma o pino de cada switch na tabela de ligações. |
 
 ## Gerar um .exe

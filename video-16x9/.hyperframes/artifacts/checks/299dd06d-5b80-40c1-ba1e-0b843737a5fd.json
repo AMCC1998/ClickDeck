@@ -1,0 +1,279 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "duplicate_media_discovery_risk",
+        "severity": "warning",
+        "message": "Detected 2 matching img entries with the same source/start/duration.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "G:\\andre\\ClickDeck\\video-16x9\\compositions\\actions.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation."
+      }
+    ],
+    "filesScanned": 8
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 3,
+    "findings": [
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 3.317,
+        "selector": "#act-s1",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 862.35,
+          "top": 0,
+          "right": 1902.35,
+          "bottom": 1080,
+          "width": 1040,
+          "height": 1080
+        },
+        "containerSelector": "#act-plate",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 880,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1040,
+          "height": 1080
+        },
+        "overflow": {
+          "left": 17.65
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/actions.html",
+        "bbox": {
+          "x": 862.35,
+          "y": 0,
+          "width": 1040,
+          "height": 1080
+        },
+        "firstSeen": 3.317,
+        "lastSeen": 3.317,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          3.317
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 5.528,
+        "selector": "#act-s4",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 630.05,
+          "top": -259.65,
+          "right": 2138.05,
+          "bottom": 1306.35,
+          "width": 1508,
+          "height": 1566
+        },
+        "containerSelector": "#act-plate",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 880,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1040,
+          "height": 1080
+        },
+        "overflow": {
+          "left": 249.95,
+          "right": 218.05,
+          "top": 259.65,
+          "bottom": 226.35
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/actions.html",
+        "bbox": {
+          "x": 630.05,
+          "y": -259.65,
+          "width": 1508,
+          "height": 1566
+        },
+        "firstSeen": 5.528,
+        "lastSeen": 5.528,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          5.528
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 7.739,
+        "selector": "#app-chip-stack",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 283.52,
+          "top": 598,
+          "right": 479.36,
+          "bottom": 686,
+          "width": 195.84,
+          "height": 88
+        },
+        "containerSelector": "#app-chip-window",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 283.52,
+          "top": 598,
+          "right": 513.52,
+          "bottom": 642,
+          "width": 230,
+          "height": 44
+        },
+        "overflow": {
+          "bottom": 44
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/app.html",
+        "bbox": {
+          "x": 283.52,
+          "y": 598,
+          "width": 195.84,
+          "height": 88
+        },
+        "firstSeen": 7.739,
+        "lastSeen": 7.739,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          7.739
+        ]
+      }
+    ],
+    "duration": 19.9,
+    "samples": [
+      1.106,
+      3.317,
+      5.528,
+      7.739,
+      9.95,
+      12.161,
+      14.372,
+      16.583,
+      18.794
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 3,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      1.106,
+      5.528,
+      9.95,
+      14.372,
+      18.794
+    ],
+    "checked": 26,
+    "passed": 26
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "film_silent",
+        "severity": "warning",
+        "message": "This 20 s film has no sound source (no <audio>, no <video> with sound): add a music bed and sounds on the visible actions unless the person asked for silence; see references/sound.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0
+      }
+    ],
+    "enabled": true,
+    "step": 0.12400000000000055,
+    "samples": 160
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 1,
+    "findings": [
+      {
+        "code": "audio_none",
+        "severity": "info",
+        "message": "The film has no sound: no clip in it plays audio.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0
+      }
+    ]
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

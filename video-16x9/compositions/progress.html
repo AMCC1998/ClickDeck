@@ -1,0 +1,47 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    #progress-bar {
+      position: absolute;
+      left: 120px;
+      top: 990px;
+      width: 600px;
+      height: 8px;
+      display: flex;
+      gap: 12px;
+    }
+    .progress-seg {
+      flex: 1;
+      height: 8px;
+      border-radius: 4px;
+      background: #23252c;
+    }
+  </style>
+  <div id="root" data-composition-id="progress" data-width="1920" data-height="1080">
+    <div id="progress-bar" data-layout-ignore>
+      <span class="progress-seg"></span><span class="progress-seg"></span><span class="progress-seg"></span
+      ><span class="progress-seg"></span><span class="progress-seg"></span><span class="progress-seg"></span
+      ><span class="progress-seg"></span><span class="progress-seg"></span>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const keyColors = ["#ff7850", "#ffbe46", "#6ed278", "#50b4f0", "#9682fa", "#f06eb4", "#2dd4bf", "#ef4444"];
+
+    // Decoração: um segmento acende a cada ~2,5 s, como a barra de LEDs.
+    gsap.utils.toArray("#progress-bar .progress-seg").forEach((seg, i) => {
+      tl.fromTo(
+        seg,
+        { backgroundColor: "#23252c" },
+        { backgroundColor: keyColors[i], duration: 0.2, ease: "power2.out" },
+        0.3 + i * 2.45,
+      );
+    });
+
+    window.__timelines["progress"] = tl;
+  </script>
+</template>

@@ -1,0 +1,393 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "duplicate_media_discovery_risk",
+        "severity": "warning",
+        "message": "Detected 2 matching img entries with the same source/start/duration.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "G:\\andre\\ClickDeck\\video\\compositions\\actions.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation."
+      }
+    ],
+    "filesScanned": 8
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 6,
+    "findings": [
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 3.317,
+        "selector": "#act-stack > span:nth-of-type(2)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 60,
+          "top": 456,
+          "right": 417,
+          "bottom": 623,
+          "width": 357,
+          "height": 167
+        },
+        "containerSelector": "#act-s1 > img:nth-of-type(1)",
+        "text": "sites.",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.67,
+        "dataAttributes": {
+          "data-hf-id": "hf-4vk0"
+        },
+        "sourceFile": "compositions/actions.html",
+        "bbox": {
+          "x": 60,
+          "y": 456,
+          "width": 357,
+          "height": 167
+        },
+        "firstSeen": 3.317,
+        "lastSeen": 3.317,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          3.317
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 3.317,
+        "selector": "#act-stack > span:nth-of-type(3)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 60,
+          "top": 616,
+          "right": 774.98,
+          "bottom": 783,
+          "width": 714.98,
+          "height": 167
+        },
+        "containerSelector": "#act-s1 > img:nth-of-type(1)",
+        "text": "comandos.",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {
+          "data-hf-id": "hf-qcap"
+        },
+        "sourceFile": "compositions/actions.html",
+        "bbox": {
+          "x": 60,
+          "y": 616,
+          "width": 714.98,
+          "height": 167
+        },
+        "firstSeen": 3.317,
+        "lastSeen": 3.317,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          3.317
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 3.317,
+        "selector": "#act-stack > span:nth-of-type(4)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 60,
+          "top": 776,
+          "right": 582.3,
+          "bottom": 943,
+          "width": 522.3,
+          "height": 167
+        },
+        "containerSelector": "#act-s1 > img:nth-of-type(1)",
+        "text": "atalhos.",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {
+          "data-hf-id": "hf-yulg"
+        },
+        "sourceFile": "compositions/actions.html",
+        "bbox": {
+          "x": 60,
+          "y": 776,
+          "width": 522.3,
+          "height": 167
+        },
+        "firstSeen": 3.317,
+        "lastSeen": 3.317,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          3.317
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 3.317,
+        "selector": "#act-s1",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -17.65,
+          "top": 520,
+          "right": 1062.35,
+          "bottom": 1330,
+          "width": 1080,
+          "height": 810
+        },
+        "containerSelector": "#act-plate",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 520,
+          "right": 1080,
+          "bottom": 1330,
+          "width": 1080,
+          "height": 810
+        },
+        "overflow": {
+          "left": 17.65
+        },
+        "dataAttributes": {
+          "data-hf-id": "hf-o0vi"
+        },
+        "sourceFile": "compositions/actions.html",
+        "bbox": {
+          "x": -17.65,
+          "y": 520,
+          "width": 1080,
+          "height": 810
+        },
+        "firstSeen": 3.317,
+        "lastSeen": 3.317,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          3.317
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 5.528,
+        "selector": "#act-s4",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -256.25,
+          "top": 325.15,
+          "right": 1309.75,
+          "bottom": 1499.65,
+          "width": 1566,
+          "height": 1174.5
+        },
+        "containerSelector": "#act-plate",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 520,
+          "right": 1080,
+          "bottom": 1330,
+          "width": 1080,
+          "height": 810
+        },
+        "overflow": {
+          "left": 256.25,
+          "right": 229.75,
+          "top": 194.85,
+          "bottom": 169.65
+        },
+        "dataAttributes": {
+          "data-hf-id": "hf-6sl7"
+        },
+        "sourceFile": "compositions/actions.html",
+        "bbox": {
+          "x": -256.25,
+          "y": 325.15,
+          "width": 1566,
+          "height": 1174.5
+        },
+        "firstSeen": 5.528,
+        "lastSeen": 5.528,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          5.528
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 7.739,
+        "selector": "#app-chip-stack",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 223.52,
+          "top": 560,
+          "right": 419.36,
+          "bottom": 648,
+          "width": 195.84,
+          "height": 88
+        },
+        "containerSelector": "#app-chip-window",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 223.52,
+          "top": 560,
+          "right": 453.52,
+          "bottom": 604,
+          "width": 230,
+          "height": 44
+        },
+        "overflow": {
+          "bottom": 44
+        },
+        "dataAttributes": {
+          "data-hf-id": "hf-93c1"
+        },
+        "sourceFile": "compositions/app.html",
+        "bbox": {
+          "x": 223.52,
+          "y": 560,
+          "width": 195.84,
+          "height": 88
+        },
+        "firstSeen": 7.739,
+        "lastSeen": 7.739,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          7.739
+        ]
+      }
+    ],
+    "duration": 19.9,
+    "samples": [
+      1.106,
+      3.317,
+      5.528,
+      7.739,
+      9.95,
+      12.161,
+      14.372,
+      16.583,
+      18.794
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 6,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      1.106,
+      5.528,
+      9.95,
+      14.372,
+      18.794
+    ],
+    "checked": 25,
+    "passed": 25
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "film_silent",
+        "severity": "warning",
+        "message": "This 20 s film has no sound source (no <audio>, no <video> with sound): add a music bed and sounds on the visible actions unless the person asked for silence; see references/sound.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0
+      }
+    ],
+    "enabled": true,
+    "step": 0.12400000000000055,
+    "samples": 160
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 1,
+    "findings": [
+      {
+        "code": "audio_none",
+        "severity": "info",
+        "message": "The film has no sound: no clip in it plays audio.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0
+      }
+    ]
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

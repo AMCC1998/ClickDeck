@@ -1,0 +1,106 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      background: #0f1014;
+      color: #f4f4f2;
+      font-family: "Archivo Black", sans-serif;
+    }
+    #usb-plate {
+      position: absolute;
+      left: 0;
+      top: 520px;
+      width: 1080px;
+      height: 810px;
+      overflow: hidden;
+      background: #e9e9e7;
+    }
+    #usb-settle {
+      position: absolute;
+      inset: 0;
+      transform-origin: 50% 50%;
+    }
+    #usb-punch {
+      position: absolute;
+      inset: 0;
+      transform-origin: 447px 418px;
+    }
+    #usb-punch img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .usb-hl {
+      position: absolute;
+      left: 60px;
+      bottom: 1430px;
+      width: 960px;
+      font-size: 132px;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+    }
+    .usb-hl .w {
+      display: inline-block;
+      opacity: 0;
+    }
+    .usb-hl .acc {
+      color: #50b4f0;
+    }
+    #usb-dip {
+      position: absolute;
+      inset: 0;
+      background: #000;
+      opacity: 0;
+    }
+  </style>
+  <div data-hf-id="hf-hwfn" id="root" data-composition-id="usb" data-width="1080" data-height="1920">
+    <div data-hf-id="hf-ravu" id="usb-plate">
+      <div data-hf-id="hf-cwp7" id="usb-settle">
+        <div data-hf-id="hf-4zhq" id="usb-punch">
+          <img data-hf-id="hf-mt6k" src="assets/foto3.jpg" alt="ClickDeck de perfil com a porta USB-C" />
+        </div>
+      </div>
+    </div>
+    <h1 data-hf-id="hf-mquh" id="usb-a" class="usb-hl" data-layout-allow-overlap>
+      <span data-hf-id="hf-7z9e" class="w">Impresso</span><br data-hf-id="hf-x5px" /><span data-hf-id="hf-kda6" class="w">em</span> <span data-hf-id="hf-hame" class="w acc">3D.</span>
+    </h1>
+    <h1 data-hf-id="hf-swka" id="usb-b" class="usb-hl" data-layout-allow-overlap>
+      <span data-hf-id="hf-3x6j" class="w">Liga</span> <span data-hf-id="hf-1yqt" class="w">por</span><br data-hf-id="hf-rsrt" /><span data-hf-id="hf-pitb" class="w acc">USB-C.</span>
+    </h1>
+    <div data-hf-id="hf-5ugu" id="usb-dip" data-layout-ignore></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    // Chega grande, a meio do zoom da cena anterior, e assenta.
+    tl.fromTo("#usb-settle", { scale: 1.25 }, { scale: 1, duration: 0.45, ease: "expo.out" }, 0);
+    tl.fromTo(
+      "#usb-a .w",
+      { opacity: 0, filter: "blur(6px)" },
+      { opacity: 1, filter: "blur(0px)", duration: 0.13, ease: "power4.out", stagger: 0.067 },
+      0.12,
+    );
+
+    // Punch-in na porta USB-C com a troca de frase.
+    tl.to(
+      "#usb-a .w",
+      { opacity: 0, filter: "blur(8px)", duration: 0.15, ease: "power2.in", stagger: 0.03 },
+      1.4,
+    );
+    tl.fromTo("#usb-punch", { scale: 1 }, { scale: 1.8, duration: 0.3, ease: "power4.out" }, 1.5);
+    tl.fromTo(
+      "#usb-b .w",
+      { opacity: 0, filter: "blur(6px)" },
+      { opacity: 1, filter: "blur(0px)", duration: 0.13, ease: "power4.out", stagger: 0.067 },
+      1.52,
+    );
+
+    // Dip de 3 frames antes do corte para o fecho.
+    tl.fromTo("#usb-dip", { opacity: 0 }, { opacity: 0.4, duration: 0.1, ease: "none" }, 2.9);
+
+    window.__timelines["usb"] = tl;
+  </script>
+</template>

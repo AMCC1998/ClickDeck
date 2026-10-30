@@ -1,0 +1,110 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      background: #0f1014;
+      color: #f4f4f2;
+      font-family: "Archivo Black", sans-serif;
+    }
+    #end-logo {
+      position: absolute;
+      left: 0;
+      top: 250px;
+      width: 1080px;
+      text-align: center;
+      font-size: 140px;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    #end-logo .l {
+      display: inline-block;
+      opacity: 0;
+    }
+    #end-dots {
+      position: absolute;
+      left: 0;
+      top: 448px;
+      width: 1080px;
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+    }
+    .end-dot {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+    }
+    #end-sub {
+      position: absolute;
+      left: 0;
+      top: 520px;
+      width: 1080px;
+      text-align: center;
+      font-family: "Inter", sans-serif;
+      font-weight: 700;
+      font-size: 46px;
+      color: #8a8d96;
+      opacity: 0;
+    }
+    #end-plate {
+      position: absolute;
+      left: 0;
+      top: 690px;
+      width: 1080px;
+      height: 640px;
+      overflow: hidden;
+      background: #e9e9e7;
+    }
+    #end-plate img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 45%;
+      display: block;
+    }
+  </style>
+  <div data-hf-id="hf-ks0s" id="root" data-composition-id="end" data-width="1080" data-height="1920">
+    <div data-hf-id="hf-gl87" id="end-plate"><img data-hf-id="hf-pfa5" src="assets/foto2.jpg" alt="ClickDeck ao lado do teclado" /></div>
+    <h1 data-hf-id="hf-bjw2" id="end-logo">
+      <span data-hf-id="hf-g2eg" class="l">C</span><span data-hf-id="hf-x8hh" class="l">l</span><span data-hf-id="hf-z80m" class="l">i</span><span data-hf-id="hf-wu6g" class="l">c</span><span data-hf-id="hf-00mo" class="l">k</span
+      ><span data-hf-id="hf-da99" class="l">D</span><span data-hf-id="hf-qed6" class="l">e</span><span data-hf-id="hf-mog0" class="l">c</span><span data-hf-id="hf-c7bc" class="l">k</span>
+    </h1>
+    <div data-hf-id="hf-9b3h" id="end-dots">
+      <span data-hf-id="hf-f7g9" class="end-dot" style="background: #ff7850"></span>
+      <span data-hf-id="hf-fga6" class="end-dot" style="background: #ffbe46"></span>
+      <span data-hf-id="hf-u6d3" class="end-dot" style="background: #6ed278"></span>
+      <span data-hf-id="hf-f6es" class="end-dot" style="background: #50b4f0"></span>
+      <span data-hf-id="hf-52tj" class="end-dot" style="background: #9682fa"></span>
+      <span data-hf-id="hf-s69o" class="end-dot" style="background: #f06eb4"></span>
+      <span data-hf-id="hf-xq4p" class="end-dot" style="background: #2dd4bf"></span>
+      <span data-hf-id="hf-gaqy" class="end-dot" style="background: #ef4444"></span>
+    </div>
+    <p data-hf-id="hf-9zg9" id="end-sub" data-var-text="tagline">Macropad USB + app Windows</p>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    tl.fromTo(
+      "#end-logo .l",
+      { opacity: 0, filter: "blur(4px)" },
+      { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power3.out", stagger: 0.08 },
+      0.05,
+    );
+    tl.fromTo(
+      "#end-dots .end-dot",
+      { scale: 0 },
+      { scale: 1, duration: 0.3, ease: "expo.out", stagger: 0.05 },
+      0.75,
+    );
+    tl.fromTo(
+      "#end-sub",
+      { opacity: 0, filter: "blur(8px)" },
+      { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" },
+      1.1,
+    );
+
+    window.__timelines["end"] = tl;
+  </script>
+</template>

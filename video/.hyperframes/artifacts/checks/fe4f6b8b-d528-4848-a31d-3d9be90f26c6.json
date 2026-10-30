@@ -1,0 +1,445 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "duplicate_media_discovery_risk",
+        "severity": "warning",
+        "message": "Detected 2 matching img entries with the same source/start/duration.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "G:\\andre\\ClickDeck\\video\\compositions\\actions.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation."
+      }
+    ],
+    "filesScanned": 7
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 7,
+    "findings": [
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 2.75,
+        "selector": "#hook-b > span:nth-of-type(1)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 60,
+          "top": -300.11,
+          "right": 245.33,
+          "bottom": -122.11,
+          "width": 185.33,
+          "height": 178
+        },
+        "containerSelector": "#root",
+        "text": "Os",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "top": 300.11
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/hook.html",
+        "bbox": {
+          "x": 60,
+          "y": -300.11,
+          "width": 185.33,
+          "height": 178
+        },
+        "firstSeen": 2.75,
+        "lastSeen": 2.75,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          2.75
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 2.75,
+        "selector": "#hook-b > span:nth-of-type(2)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 286.66,
+          "top": -300.11,
+          "right": 591.45,
+          "bottom": -122.11,
+          "width": 304.79,
+          "height": 178
+        },
+        "containerSelector": "#root",
+        "text": "teus",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "top": 300.11
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/hook.html",
+        "bbox": {
+          "x": 286.66,
+          "y": -300.11,
+          "width": 304.79,
+          "height": 178
+        },
+        "firstSeen": 2.75,
+        "lastSeen": 2.75,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          2.75
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 2.75,
+        "selector": "#hook-b > span:nth-of-type(3)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 60,
+          "top": -174.72,
+          "right": 615.98,
+          "bottom": 3.28,
+          "width": 555.98,
+          "height": 178
+        },
+        "containerSelector": "#root",
+        "text": "atalhos.",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "top": 174.72
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/hook.html",
+        "bbox": {
+          "x": 60,
+          "y": -174.72,
+          "width": 555.98,
+          "height": 178
+        },
+        "firstSeen": 2.75,
+        "lastSeen": 2.75,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          2.75
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 2.75,
+        "selector": "#hook-stage",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 0,
+          "top": -512.33,
+          "right": 1080,
+          "bottom": 1407.67,
+          "width": 1080,
+          "height": 1920
+        },
+        "containerSelector": "#hook > div:nth-of-type(1)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "top": 512.33
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/hook.html",
+        "bbox": {
+          "x": 0,
+          "y": -512.33,
+          "width": 1080,
+          "height": 1920
+        },
+        "firstSeen": 2.75,
+        "lastSeen": 2.75,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          2.75
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 4.583,
+        "selector": "#act-stack > span:nth-of-type(4)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 60,
+          "top": 456,
+          "right": 582.3,
+          "bottom": 623,
+          "width": 522.3,
+          "height": 167
+        },
+        "containerSelector": "#act-s3 > img:nth-of-type(1)",
+        "text": "atalhos.",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.67,
+        "dataAttributes": {},
+        "sourceFile": "compositions/actions.html",
+        "bbox": {
+          "x": 60,
+          "y": 456,
+          "width": 522.3,
+          "height": 167
+        },
+        "firstSeen": 4.583,
+        "lastSeen": 4.583,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          4.583
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 4.583,
+        "selector": "#act-s3",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -67.33,
+          "top": 479.5,
+          "right": 1120.67,
+          "bottom": 1370.5,
+          "width": 1188,
+          "height": 891
+        },
+        "containerSelector": "#act-plate",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 520,
+          "right": 1080,
+          "bottom": 1330,
+          "width": 1080,
+          "height": 810
+        },
+        "overflow": {
+          "left": 67.33,
+          "right": 40.67,
+          "top": 40.5,
+          "bottom": 40.5
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/actions.html",
+        "bbox": {
+          "x": -67.33,
+          "y": 479.5,
+          "width": 1188,
+          "height": 891
+        },
+        "firstSeen": 4.583,
+        "lastSeen": 4.583,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          4.583
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 8.25,
+        "selector": "#app-chip-stack",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 223.52,
+          "top": 560,
+          "right": 419.36,
+          "bottom": 648,
+          "width": 195.84,
+          "height": 88
+        },
+        "containerSelector": "#app-chip-window",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 223.52,
+          "top": 560,
+          "right": 453.52,
+          "bottom": 604,
+          "width": 230,
+          "height": 44
+        },
+        "overflow": {
+          "bottom": 44
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/app.html",
+        "bbox": {
+          "x": 223.52,
+          "y": 560,
+          "width": 195.84,
+          "height": 88
+        },
+        "firstSeen": 8.25,
+        "lastSeen": 8.25,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          8.25
+        ]
+      }
+    ],
+    "duration": 16.5,
+    "samples": [
+      0.917,
+      2.75,
+      4.583,
+      6.417,
+      8.25,
+      10.083,
+      11.917,
+      13.75,
+      15.583
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 7,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      0.917,
+      4.583,
+      8.25,
+      11.917,
+      15.583
+    ],
+    "checked": 26,
+    "passed": 26
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "film_silent",
+        "severity": "warning",
+        "message": "This 17 s film has no sound source (no <audio>, no <video> with sound): add a music bed and sounds on the visible actions unless the person asked for silence; see references/sound.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0
+      }
+    ],
+    "enabled": true,
+    "step": 0.125,
+    "samples": 132
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 1,
+    "findings": [
+      {
+        "code": "audio_none",
+        "severity": "info",
+        "message": "The film has no sound: no clip in it plays audio.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0
+      }
+    ]
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

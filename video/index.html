@@ -1,0 +1,132 @@
+<!doctype html>
+<html
+  lang="pt"
+  data-resolution="portrait"
+  data-composition-variables='[{"id":"tagline","type":"string","label":"Linha final","default":"Macropad USB + app Windows"}]'
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      :root {
+        --ground: #0f1014;
+        --ink: #f4f4f2;
+        --font-display: "Archivo Black", sans-serif;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: var(--ground);
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        font-family: var(--font-display);
+      }
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-ose1"
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="19.9"
+      data-width="1080"
+      data-height="1920"
+      data-motion-blur="on"
+    >
+      <div data-hf-id="hf-wckk"
+        id="hook"
+        data-composition-id="hook"
+        data-composition-src="compositions/hook.html"
+        data-start="0"
+        data-duration="2.8"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+      <div data-hf-id="hf-8c7j"
+        id="actions"
+        data-composition-id="actions"
+        data-composition-src="compositions/actions.html"
+        data-start="2.8"
+        data-duration="3.6"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+      <div data-hf-id="hf-othh"
+        id="app"
+        data-composition-id="app"
+        data-composition-src="compositions/app.html"
+        data-start="6.4"
+        data-duration="3.8"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+      <div data-hf-id="hf-dp5j"
+        id="usb"
+        data-composition-id="usb"
+        data-composition-src="compositions/usb.html"
+        data-start="10.2"
+        data-duration="3"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+      <div
+        id="open"
+        data-composition-id="open"
+        data-composition-src="compositions/open.html"
+        data-start="13.2"
+        data-duration="3.4"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+      <div data-hf-id="hf-51ba"
+        id="end"
+        data-composition-id="end"
+        data-composition-src="compositions/end.html"
+        data-start="16.6"
+        data-duration="3.3"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+      <div data-hf-id="hf-p61c"
+        id="progress"
+        data-composition-id="progress"
+        data-composition-src="compositions/progress.html"
+        data-start="0"
+        data-duration="19.9"
+        data-track-index="2"
+        data-track-kind="graphics"
+        data-width="1080"
+        data-height="1920"
+        style="z-index: 2"
+      ></div>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

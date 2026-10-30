@@ -1,0 +1,101 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      background: #0f1014;
+      color: #f4f4f2;
+      font-family: "Archivo Black", sans-serif;
+    }
+    #hook-stage {
+      position: absolute;
+      inset: 0;
+    }
+    #hook-plate {
+      position: absolute;
+      left: 0;
+      top: 520px;
+      width: 1080px;
+      height: 810px;
+      overflow: hidden;
+      background: #e9e9e7;
+    }
+    #hook-settle {
+      position: absolute;
+      inset: 0;
+      transform-origin: 50% 50%;
+    }
+    #hook-punch {
+      position: absolute;
+      inset: 0;
+      transform-origin: 625px 414px;
+    }
+    #hook-punch img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hook-hl {
+      position: absolute;
+      left: 60px;
+      bottom: 1430px;
+      width: 960px;
+      font-size: 132px;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+    }
+    .hook-hl .w {
+      display: inline-block;
+    }
+    #hook-b .w {
+      opacity: 0;
+    }
+    .hook-hl .acc {
+      color: #ff7850;
+    }
+  </style>
+  <div data-hf-id="hf-srfg" id="root" data-composition-id="hook" data-width="1080" data-height="1920">
+    <div data-hf-id="hf-be7t" id="hook-stage">
+      <div data-hf-id="hf-rwjn" id="hook-plate">
+        <div data-hf-id="hf-xfvs" id="hook-settle">
+          <div data-hf-id="hf-huoj" id="hook-punch">
+            <img data-hf-id="hf-t574" id="hook-photo" src="assets/foto1.jpg" alt="ClickDeck com as teclas acesas" />
+          </div>
+        </div>
+      </div>
+      <h1 data-hf-id="hf-ninj" id="hook-a" class="hook-hl" data-layout-allow-overlap>
+        <span data-hf-id="hf-tjv5" class="w acc">8</span> <span data-hf-id="hf-zq26" class="w">teclas.</span>
+      </h1>
+      <h1 data-hf-id="hf-cn5w" id="hook-b" class="hook-hl" data-layout-allow-overlap>
+        <span data-hf-id="hf-z7ma" class="w">Os</span> <span data-hf-id="hf-ltgz" class="w">teus</span><br data-hf-id="hf-x5px" /><span data-hf-id="hf-idsn" class="w acc">atalhos.</span>
+      </h1>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    // Gancho: a frase já está no ecrã no frame 0; a foto assenta.
+    tl.fromTo("#hook-settle", { scale: 1.06 }, { scale: 1, duration: 0.6, ease: "expo.out" }, 0);
+
+    // Troca de frase + punch-in nas teclas acesas.
+    tl.to(
+      "#hook-a .w",
+      { opacity: 0, filter: "blur(8px)", duration: 0.15, ease: "power2.in", stagger: 0.03 },
+      1.05,
+    );
+    tl.fromTo("#hook-punch", { scale: 1 }, { scale: 1.45, duration: 0.35, ease: "power4.out" }, 1.15);
+    tl.fromTo(
+      "#hook-b .w",
+      { opacity: 0, filter: "blur(6px)" },
+      { opacity: 1, filter: "blur(0px)", duration: 0.13, ease: "power4.out", stagger: 0.067 },
+      1.2,
+    );
+
+    // Whip para cima, para a cena seguinte.
+    tl.fromTo("#hook-stage", { y: 0 }, { y: -1400, duration: 0.3, ease: "power3.in" }, 2.5);
+
+    window.__timelines["hook"] = tl;
+  </script>
+</template>

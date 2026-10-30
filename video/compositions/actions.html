@@ -1,0 +1,140 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      background: #0f1014;
+      color: #f4f4f2;
+      font-family: "Archivo Black", sans-serif;
+    }
+    #act-stage {
+      position: absolute;
+      inset: 0;
+    }
+    #act-lead {
+      position: absolute;
+      left: 60px;
+      top: 220px;
+      font-family: "Inter", sans-serif;
+      font-weight: 700;
+      font-size: 54px;
+      color: #8a8d96;
+    }
+    #act-window {
+      position: absolute;
+      left: 60px;
+      top: 300px;
+      width: 960px;
+      height: 160px;
+      overflow: hidden;
+    }
+    #act-stack {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+    }
+    .act-word {
+      display: block;
+      height: 160px;
+      font-size: 124px;
+      line-height: 160px;
+      letter-spacing: -0.02em;
+    }
+    #act-plate {
+      position: absolute;
+      left: 0;
+      top: 520px;
+      width: 1080px;
+      height: 810px;
+      overflow: hidden;
+      background: #e9e9e7;
+    }
+    .act-shot {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+    }
+    .act-shot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    #act-s2 {
+      transform-origin: 625px 414px;
+    }
+    #act-s4 {
+      transform-origin: 557px 433px;
+    }
+    #act-flood {
+      position: absolute;
+      left: 440px;
+      top: 825px;
+      width: 200px;
+      height: 200px;
+      border-radius: 40px;
+      background: #ff7850;
+    }
+  </style>
+  <div data-hf-id="hf-jy5i" id="root" data-composition-id="actions" data-width="1080" data-height="1920">
+    <div data-hf-id="hf-hl22" id="act-stage">
+      <p data-hf-id="hf-zkwq" id="act-lead">Um clique abre</p>
+      <div data-hf-id="hf-lps9" id="act-window" data-layout-allow-overflow>
+        <div data-hf-id="hf-g9ls" id="act-stack">
+          <span data-hf-id="hf-c1v9" class="act-word" style="color: #ffbe46">programas.</span>
+          <span data-hf-id="hf-4vk0" class="act-word" style="color: #6ed278">sites.</span>
+          <span data-hf-id="hf-qcap" class="act-word" style="color: #50b4f0">comandos.</span>
+          <span data-hf-id="hf-yulg" class="act-word" style="color: #ff7850">atalhos.</span>
+        </div>
+      </div>
+      <div data-hf-id="hf-18xg" id="act-plate">
+        <div data-hf-id="hf-o0vi" id="act-s1" class="act-shot"><img data-hf-id="hf-5nxs" src="assets/foto2.jpg" alt="ClickDeck visto de cima" /></div>
+        <div data-hf-id="hf-k2rh" id="act-s2" class="act-shot"><img data-hf-id="hf-eevm" src="assets/foto1.jpg" alt="Teclas acesas" /></div>
+        <div data-hf-id="hf-jb3o" id="act-s3" class="act-shot"><img data-hf-id="hf-kq1m" src="assets/foto3.jpg" alt="ClickDeck de perfil" /></div>
+        <div data-hf-id="hf-6sl7" id="act-s4" class="act-shot"><img data-hf-id="hf-9z1o" src="assets/foto2.jpg" alt="As oito teclas" /></div>
+      </div>
+    </div>
+    <div data-hf-id="hf-n3xf" id="act-flood" data-layout-ignore></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const cuts = [0, 0.85, 1.6, 2.35];
+    const shotEnd = 3.6;
+
+    // Chega de baixo, com a mesma velocidade do whip que saiu.
+    tl.fromTo("#act-stage", { y: 1400 }, { y: 0, duration: 0.3, ease: "power3.out" }, 0);
+
+    // Cortes secos nas fotos, em cada mudança de palavra.
+    ["#act-s1", "#act-s2", "#act-s3", "#act-s4"].forEach((id, i) => {
+      tl.set(id, { opacity: 1 }, cuts[i]);
+      if (i < 3) tl.set(id, { opacity: 0 }, cuts[i + 1]);
+    });
+    const end = (i) => (i < 3 ? cuts[i + 1] : shotEnd) - cuts[i];
+    tl.fromTo("#act-s1", { x: 0 }, { x: -30, duration: end(0), ease: "none" }, cuts[0]);
+    tl.fromTo("#act-s2", { scale: 1.5, x: 0 }, { scale: 1.5, x: 25, duration: end(1), ease: "none" }, cuts[1]);
+    tl.fromTo("#act-s3", { scale: 1.1, x: -20 }, { scale: 1.1, x: 10, duration: end(2), ease: "none" }, cuts[2]);
+    tl.fromTo("#act-s4", { scale: 1.45, x: 0 }, { scale: 1.45, x: -20, duration: end(3), ease: "none" }, cuts[3]);
+
+    // Palavra em slot machine: um rolo de 0,12 s por corte.
+    cuts.slice(1).forEach((t, i) => {
+      tl.fromTo(
+        "#act-stack",
+        { y: -160 * i },
+        { y: -160 * (i + 1), duration: 0.12, ease: "power2.out" },
+        t,
+      );
+    });
+
+    // A tecla laranja cresce até ser o mundo da cena seguinte.
+    tl.fromTo(
+      "#act-flood",
+      { scale: 0, borderRadius: 40 },
+      { scale: 12, borderRadius: 0, duration: 0.55, ease: "power2.inOut" },
+      3.0,
+    );
+
+    window.__timelines["actions"] = tl;
+  </script>
+</template>

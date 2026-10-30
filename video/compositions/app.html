@@ -1,0 +1,199 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      background: #0f1014;
+      color: #f4f4f2;
+      font-family: "Archivo Black", sans-serif;
+    }
+    .app-hl {
+      position: absolute;
+      left: 60px;
+      bottom: 1430px;
+      width: 960px;
+      font-size: 132px;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+    }
+    .app-hl .w {
+      display: inline-block;
+      opacity: 0;
+    }
+    .app-hl .acc {
+      color: #ff7850;
+    }
+    #app-chip {
+      position: absolute;
+      left: 60px;
+      top: 552px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 0 26px;
+      border: 2px solid #2a2d35;
+      border-radius: 30px;
+      font-family: "Space Mono", monospace;
+      font-size: 32px;
+      opacity: 0;
+    }
+    #app-chip-label {
+      color: #8a8d96;
+    }
+    #app-chip-window {
+      position: relative;
+      height: 44px;
+      width: 230px;
+      overflow: hidden;
+    }
+    #app-chip-stack {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    .app-chip-val {
+      display: block;
+      height: 44px;
+      line-height: 44px;
+      white-space: nowrap;
+    }
+    #app-card {
+      position: absolute;
+      left: 40px;
+      top: 640px;
+      width: 1000px;
+      height: 501px;
+      overflow: hidden;
+      border-radius: 24px;
+      background: #14161c;
+      transform-origin: 50% 50%;
+    }
+    #app-shot {
+      position: absolute;
+      left: -30.14px;
+      top: -268.5px;
+      width: 1704.2px;
+      height: 1137px;
+      display: block;
+    }
+    #app-leds {
+      position: absolute;
+      left: 148px;
+      top: 1200px;
+      width: 784px;
+      height: 76px;
+      border-radius: 38px;
+      background: #1b1d23;
+      border: 2px solid #2a2d35;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      opacity: 0;
+    }
+    .app-led {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #2a2d35;
+    }
+    #app-flood {
+      position: absolute;
+      inset: 0;
+      background: #ff7850;
+    }
+  </style>
+  <div data-hf-id="hf-ia8e" id="root" data-composition-id="app" data-width="1080" data-height="1920">
+    <h1 data-hf-id="hf-6fav" id="app-a" class="app-hl" data-layout-allow-overlap>
+      <span data-hf-id="hf-ufi3" class="w">A</span> <span data-hf-id="hf-rn46" class="w">tua</span> <span data-hf-id="hf-dwzd" class="w acc">cor.</span>
+    </h1>
+    <h1 data-hf-id="hf-xrf0" id="app-b" class="app-hl" data-layout-allow-overlap>
+      <span data-hf-id="hf-3167" class="w">Perfis</span><br data-hf-id="hf-x5px" /><span data-hf-id="hf-1yqt" class="w">por</span> <span data-hf-id="hf-kzi0" class="w acc">app.</span>
+    </h1>
+    <div data-hf-id="hf-8z91" id="app-chip">
+      <span data-hf-id="hf-df4h" id="app-chip-label">PERFIL</span>
+      <span data-hf-id="hf-jw17" id="app-chip-window">
+        <span data-hf-id="hf-93c1" id="app-chip-stack">
+          <span data-hf-id="hf-h0f6" class="app-chip-val">Geral</span>
+          <span data-hf-id="hf-ujak" class="app-chip-val">Fusion 360</span>
+        </span>
+      </span>
+    </div>
+    <div data-hf-id="hf-i3p4" id="app-card" data-layout-allow-overflow>
+      <img data-hf-id="hf-x1d2" id="app-shot" src="assets/app.png" alt="App ClickDeck com as 8 teclas configuráveis" />
+    </div>
+    <div data-hf-id="hf-zrqx" id="app-leds">
+      <span data-hf-id="hf-zvdi" class="app-led"></span><span data-hf-id="hf-ynwa" class="app-led"></span><span data-hf-id="hf-z27b" class="app-led"></span><span data-hf-id="hf-zgic" class="app-led"></span
+      ><span data-hf-id="hf-zutd" class="app-led"></span><span data-hf-id="hf-094e" class="app-led"></span><span data-hf-id="hf-0nff" class="app-led"></span><span data-hf-id="hf-11qg" class="app-led"></span>
+    </div>
+    <div data-hf-id="hf-wncq" id="app-flood" data-layout-ignore></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const keyColors = ["#ff7850", "#ffbe46", "#6ed278", "#50b4f0", "#9682fa", "#f06eb4", "#2dd4bf", "#ef4444"];
+    const fusionColors = ["#2dd4bf", "#2dd4bf", "#50b4f0", "#50b4f0", "#9682fa", "#9682fa", "#f4f4f2", "#f4f4f2"];
+    const leds = gsap.utils.toArray("#app-leds .app-led");
+
+    // O mundo laranja encolhe até ser a tecla 1 da app.
+    tl.fromTo(
+      "#app-flood",
+      { clipPath: "inset(0px 0px 0px 0px round 0px)" },
+      { clipPath: "inset(651px 799px 1039px 51px round 22px)", duration: 0.5, ease: "power3.inOut" },
+      0,
+    );
+    tl.fromTo("#app-flood", { opacity: 1 }, { opacity: 0, duration: 0.12, ease: "power1.out" }, 0.5);
+
+    tl.fromTo(
+      "#app-a .w",
+      { opacity: 0, filter: "blur(6px)" },
+      { opacity: 1, filter: "blur(0px)", duration: 0.13, ease: "power4.out", stagger: 0.067 },
+      0.45,
+    );
+    tl.fromTo("#app-chip", { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "power2.out" }, 0.6);
+
+    // A barra de LEDs acende com a cor de cada tecla.
+    tl.fromTo("#app-leds", { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "power2.out" }, 0.6);
+    leds.forEach((led, i) => {
+      tl.fromTo(
+        led,
+        { backgroundColor: "#2a2d35", boxShadow: "0 0 0px 0px rgba(0,0,0,0)" },
+        { backgroundColor: keyColors[i], boxShadow: `0 0 26px 6px ${keyColors[i]}88`, duration: 0.15, ease: "power2.out" },
+        0.75 + i * 0.06,
+      );
+    });
+
+    // Muda o perfil: frase, chip e LEDs trocam juntos.
+    tl.to(
+      "#app-a .w",
+      { opacity: 0, filter: "blur(8px)", duration: 0.15, ease: "power2.in", stagger: 0.03 },
+      1.8,
+    );
+    tl.fromTo("#app-chip-stack", { y: 0 }, { y: -44, duration: 0.12, ease: "power2.out" }, 1.95);
+    tl.fromTo(
+      "#app-b .w",
+      { opacity: 0, filter: "blur(6px)" },
+      { opacity: 1, filter: "blur(0px)", duration: 0.13, ease: "power4.out", stagger: 0.067 },
+      1.95,
+    );
+    leds.forEach((led, i) => {
+      tl.to(
+        led,
+        { backgroundColor: fusionColors[i], boxShadow: `0 0 26px 6px ${fusionColors[i]}88`, duration: 0.15, ease: "power2.out" },
+        2.0 + i * 0.04,
+      );
+    });
+
+    // Zoom através do ecrã da app.
+    tl.fromTo(
+      ["#app-a", "#app-b", "#app-chip", "#app-leds"],
+      { opacity: 1 },
+      { opacity: 0, duration: 0.15, ease: "power2.in" },
+      3.3,
+    );
+    tl.fromTo("#app-card", { scale: 1 }, { scale: 2.8, duration: 0.5, ease: "power3.in" }, 3.3);
+
+    window.__timelines["app"] = tl;
+  </script>
+</template>

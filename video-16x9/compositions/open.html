@@ -1,0 +1,118 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      background: #0f1014;
+      color: #f4f4f2;
+      font-family: "Archivo Black", sans-serif;
+    }
+    .open-hl {
+      position: absolute;
+      left: 120px;
+      width: 760px;
+      font-size: 120px;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+    }
+    .open-hl .w {
+      display: inline-block;
+      opacity: 0;
+    }
+    #open-a {
+      bottom: 560px;
+    }
+    #open-a .acc {
+      color: #6ed278;
+    }
+    #open-b {
+      top: 600px;
+      color: #ff7850;
+    }
+    #open-list {
+      position: absolute;
+      left: 1000px;
+      top: 330px;
+      width: 800px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+    .open-row {
+      height: 104px;
+      padding: 0 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 2px solid #2a2d35;
+      border-radius: 20px;
+      background: #16181d;
+      font-family: "Space Mono", monospace;
+      font-size: 38px;
+      opacity: 0;
+    }
+    .open-row .meta {
+      color: #8a8d96;
+      font-size: 32px;
+    }
+    #open-repo {
+      position: absolute;
+      left: 1000px;
+      top: 712px;
+      font-family: "Space Mono", monospace;
+      font-size: 30px;
+      color: #8a8d96;
+      opacity: 0;
+    }
+  </style>
+  <div id="root" data-composition-id="open" data-width="1920" data-height="1080">
+    <h1 id="open-a" class="open-hl" data-layout-allow-overlap>
+      <span class="w">Open</span><br /><span class="w acc">source.</span>
+    </h1>
+    <div id="open-list">
+      <div class="open-row"><span>firmware/</span><span class="meta">Arduino</span></div>
+      <div class="open-row"><span>app/</span><span class="meta">Python · Windows</span></div>
+      <div class="open-row"><span>case/</span><span class="meta">STL · STEP</span></div>
+    </div>
+    <p id="open-repo">MIT · github.com/AMCC1998/ClickDeck</p>
+    <h1 id="open-b" class="open-hl" data-layout-allow-overlap>
+      <span class="w">Faz</span> <span class="w">o</span> <span class="w">teu.</span>
+    </h1>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    tl.fromTo(
+      "#open-a .w",
+      { opacity: 0, filter: "blur(6px)" },
+      { opacity: 1, filter: "blur(0px)", duration: 0.13, ease: "power4.out", stagger: 0.067 },
+      0,
+    );
+
+    // O que está no repositório, peça a peça.
+    tl.fromTo(
+      "#open-list .open-row",
+      { opacity: 0, x: -40 },
+      { opacity: 1, x: 0, duration: 0.4, ease: "expo.out", stagger: 0.08 },
+      0.4,
+    );
+    tl.fromTo("#open-repo", { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "power2.out" }, 0.8);
+
+    tl.fromTo(
+      "#open-b .w",
+      { opacity: 0, filter: "blur(6px)" },
+      { opacity: 1, filter: "blur(0px)", duration: 0.13, ease: "power4.out", stagger: 0.067 },
+      1.3,
+    );
+
+    // Saída em blur, para o fecho.
+    tl.to(
+      ["#open-a", "#open-list", "#open-repo", "#open-b"],
+      { opacity: 0, filter: "blur(8px)", duration: 0.18, ease: "power2.in", stagger: 0.03 },
+      3.1,
+    );
+
+    window.__timelines["open"] = tl;
+  </script>
+</template>

@@ -1,0 +1,1954 @@
+{
+  "version": 1,
+  "historyId": "aa0fcf59-f77b-4a96-9648-fcb22d923a07",
+  "currentRevision": null,
+  "pendingChanges": false,
+  "files": {
+    "AGENTS.md": {
+      "hash": "1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060",
+      "content": "C:\\Users\\André Carvalho\\.cache\\hyperframes\\history\\aa0fcf59-f77b-4a96-9648-fcb22d923a07\\blobs\\1b\\1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060"
+    },
+    "CLAUDE.md": {
+      "hash": "1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060",
+      "content": "C:\\Users\\André Carvalho\\.cache\\hyperframes\\history\\aa0fcf59-f77b-4a96-9648-fcb22d923a07\\blobs\\1b\\1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060"
+    },
+    "assets/app.png": {
+      "hash": "11e990270a066b8e3ce126959b93868d386900caae08a6e73d938c51c7e15055",
+      "content": "C:\\Users\\André Carvalho\\.cache\\hyperframes\\history\\aa0fcf59-f77b-4a96-9648-fcb22d923a07\\blobs\\11\\11e990270a066b8e3ce126959b93868d386900caae08a6e73d938c51c7e15055"
+    },
+    "assets/foto1.jpg": {
+      "hash": "999051e8a7e8de8be6e0282594110f67bf8c8ba22bbe95eb3471d486a26cb417",
+      "content": "C:\\Users\\André Carvalho\\.cache\\hyperframes\\history\\aa0fcf59-f77b-4a96-9648-fcb22d923a07\\blobs\\99\\999051e8a7e8de8be6e0282594110f67bf8c8ba22bbe95eb3471d486a26cb417"
+    },
+    "assets/foto2.jpg": {
+      "hash": "403d1fc69f11197be9d476551e6ec16b6f84de56446e3c94baeedded1884e3ed",
+      "content": "C:\\Users\\André Carvalho\\.cache\\hyperframes\\history\\aa0fcf59-f77b-4a96-9648-fcb22d923a07\\blobs\\40\\403d1fc69f11197be9d476551e6ec16b6f84de56446e3c94baeedded1884e3ed"
+    },
+    "assets/foto3.jpg": {
+      "hash": "9aa6d03fc8fdf793161aa1b414a22c92118c442be9e401fb03d056f19be39e7f",
+      "content": "C:\\Users\\André Carvalho\\.cache\\hyperframes\\history\\aa0fcf59-f77b-4a96-9648-fcb22d923a07\\blobs\\9a\\9aa6d03fc8fdf793161aa1b414a22c92118c442be9e401fb03d056f19be39e7f"
+    },
+    "compositions/actions.html": {
+      "hash": "c7ee7738184371a471c96bd0ff9e972493a73dd6ef23e08abb4f759322dcab22",
+      "content": "C:\\Users\\André Carvalho\\.cache\\hyperframes\\history\\aa0fcf59-f77b-4a96-9648-fcb22d923a07\\blobs\\c7\\c7ee7738184371a471c96bd0ff9e972493a73dd6ef23e08abb4f759322dcab22"
+    },
+    "compositions/app.html": {
+      "hash": "3fe6c2c3c874f7692dcea7970a0ec9e13375128c0382e8aba5ccc4130915352d",
+      "content": "C:\\Users\\André Carvalho\\.cache\\hyperframes\\history\\aa0fcf59-f77b-4a96-9648-fcb22d923a07\\blobs\\3f\\3fe6c2c3c874f7692dcea7970a0ec9e13375128c0382e8aba5ccc4130915352d"
+    },
+    "compositions/end.html": {
+      "hash": "39de403d3b0f707728f5ffa2155ab16384c5f45b8748158a561edb8bbe49a66d",
+      "content": "C:\\Users\\André Carvalho\\.cache\\hyperframes\\history\\aa0fcf59-f77b-4a96-9648-fcb22d923a07\\blobs\\39\\39de403d3b0f707728f5ffa2155ab16384c5f45b8748158a561edb8bbe49a66d"
+    },
+    "compositions/hook.html": {
+      "hash": "e8602b1ba7948152980fafba2d462ed060ca0f48e4ea507af4211bfa57e45481",
+      "content": "C:\\Users\\André Carvalho\\.cache\\hyperframes\\history\\aa0fcf59-f77b-4a96-9648-fcb22d923a07\\blobs\\e8\\e8602b1ba7948152980fafba2d462ed060ca0f48e4ea507af4211bfa57e45481"
+    },
+    "compositions/usb.html": {
+      "hash": "a0152e82ad356cb0a67ef4fe3cf1ae3e670ae099cf7a6f7348decf4bea135d88",
+      "content": "C:\\Users\\André Carvalho\\.cache\\hyperframes\\history\\aa0fcf59-f77b-4a96-9648-fcb22d923a07\\blobs\\a0\\a0152e82ad356cb0a67ef4fe3cf1ae3e670ae099cf7a6f7348decf4bea135d88"
+    },
+    "hyperframes.json": {
+      "hash": "35a6d4ea79ebe911f0d81705f7aace5d8ff0316b745b0311d56af50c9c237cb7",
+      "content": "C:\\Users\\André Carvalho\\.cache\\hyperframes\\history\\aa0fcf59-f77b-4a96-9648-fcb22d923a07\\blobs\\35\\35a6d4ea79ebe911f0d81705f7aace5d8ff0316b745b0311d56af50c9c237cb7"
+    },
+    "index.html": {
+      "hash": "ee4441ce9d767311ac5787ecac5497a7886310a21641c4825778081e4bee4a4c",
+      "content": "C:\\Users\\André Carvalho\\.cache\\hyperframes\\history\\aa0fcf59-f77b-4a96-9648-fcb22d923a07\\blobs\\ee\\ee4441ce9d767311ac5787ecac5497a7886310a21641c4825778081e4bee4a4c"
+    },
+    "meta.json": {
+      "hash": "51c46b2da8b7d56b58c88a48e1678bd0e9503fd8332a4f752c48be386ef9000f",
+      "content": "C:\\Users\\André Carvalho\\.cache\\hyperframes\\history\\aa0fcf59-f77b-4a96-9648-fcb22d923a07\\blobs\\51\\51c46b2da8b7d56b58c88a48e1678bd0e9503fd8332a4f752c48be386ef9000f"
+    },
+    "package.json": {
+      "hash": "99068504103aef149d2f199b6e64db083d7dd8461c831e33c937c180373d3165",
+      "content": "C:\\Users\\André Carvalho\\.cache\\hyperframes\\history\\aa0fcf59-f77b-4a96-9648-fcb22d923a07\\blobs\\99\\99068504103aef149d2f199b6e64db083d7dd8461c831e33c937c180373d3165"
+    }
+  },
+  "revisions": {},
+  "checks": {
+    "latest": {
+      "revision": null,
+      "id": "1d2c6405-d24c-4ac3-9c4d-99c1afd81a2f"
+    },
+    "revisions": {},
+    "unversioned": [
+      {
+        "id": "8c882908-f18b-414c-bf08-cd2bb042d8ed",
+        "scope": "project",
+        "report": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\checks\\8c882908-f18b-414c-bf08-cd2bb042d8ed.json",
+        "metadata": {
+          "ok": true,
+          "browserSkipped": false,
+          "options": {
+            "samples": 9,
+            "atTransitions": false,
+            "maxIssues": 80,
+            "collapseStatic": true,
+            "tolerance": 2,
+            "timeout": 10000,
+            "contrast": true,
+            "strict": false,
+            "snapshots": false,
+            "browserGpuMode": "auto"
+          }
+        },
+        "createdAt": 1793385713870,
+        "contentHash": "e2f1607e925ab837104dd60781b0ba364f3bbc61585318b7f1999e38d4b6cb1a",
+        "revision": null,
+        "inputFingerprint": "afb1f072f4cea52dd270fbbd3d8229f81e86fb6845878328de2c23aca21631fe",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "id": "1fa90377-35d5-4420-a234-87faf01818a9",
+        "scope": "project",
+        "report": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\checks\\1fa90377-35d5-4420-a234-87faf01818a9.json",
+        "metadata": {
+          "ok": true,
+          "browserSkipped": false,
+          "options": {
+            "samples": 9,
+            "atTransitions": false,
+            "maxIssues": 80,
+            "collapseStatic": true,
+            "tolerance": 2,
+            "timeout": 10000,
+            "contrast": true,
+            "strict": false,
+            "snapshots": false,
+            "browserGpuMode": "auto"
+          }
+        },
+        "createdAt": 1793385737138,
+        "contentHash": "bb5fce7de6a58f55647935d07f041e1888c70a4a903fe58e0f5c0a6bb0be696f",
+        "revision": null,
+        "inputFingerprint": "99f468f66bc80b2bf8dcbfc49fa4ff6b4b1fe0cc93bbc0c76ad7b30aa677a61f",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "id": "fe4f6b8b-d528-4848-a31d-3d9be90f26c6",
+        "scope": "project",
+        "report": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\checks\\fe4f6b8b-d528-4848-a31d-3d9be90f26c6.json",
+        "metadata": {
+          "ok": true,
+          "browserSkipped": false,
+          "options": {
+            "samples": 9,
+            "atTransitions": false,
+            "maxIssues": 80,
+            "collapseStatic": true,
+            "tolerance": 2,
+            "timeout": 10000,
+            "contrast": true,
+            "strict": false,
+            "snapshots": false,
+            "browserGpuMode": "auto"
+          }
+        },
+        "createdAt": 1793385826509,
+        "contentHash": "d195b47226eaf5dc282dbdc4b5218b1043ab960ce73d6dc4da316126913450fb",
+        "revision": null,
+        "inputFingerprint": "58f3b25e753a28dad79167ed89aecc4173183ab0d04d7d1d107c817fd18b3791",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "id": "47d01632-782e-4de6-8420-7eb0d3d45510",
+        "scope": "project",
+        "report": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\checks\\47d01632-782e-4de6-8420-7eb0d3d45510.json",
+        "metadata": {
+          "ok": true,
+          "browserSkipped": false,
+          "options": {
+            "samples": 9,
+            "atTransitions": false,
+            "maxIssues": 80,
+            "collapseStatic": true,
+            "tolerance": 2,
+            "timeout": 10000,
+            "contrast": true,
+            "strict": false,
+            "snapshots": false,
+            "browserGpuMode": "auto"
+          }
+        },
+        "createdAt": 1793386655271,
+        "contentHash": "d87b9c094de336dacad42c9aaf88fc3523e778f9ed9e2d1763c8da8119f74910",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "id": "1d2c6405-d24c-4ac3-9c4d-99c1afd81a2f",
+        "scope": "project",
+        "report": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\checks\\1d2c6405-d24c-4ac3-9c4d-99c1afd81a2f.json",
+        "metadata": {
+          "ok": true,
+          "browserSkipped": false,
+          "options": {
+            "samples": 9,
+            "atTransitions": false,
+            "maxIssues": 80,
+            "collapseStatic": true,
+            "tolerance": 2,
+            "timeout": 10000,
+            "contrast": true,
+            "strict": false,
+            "snapshots": false,
+            "browserGpuMode": "auto"
+          }
+        },
+        "createdAt": 1793386787410,
+        "contentHash": "d87b9c094de336dacad42c9aaf88fc3523e778f9ed9e2d1763c8da8119f74910",
+        "revision": null,
+        "inputFingerprint": "457ca5c97453ac308220472f1636e5fcc05496fa21df0084ce0b6422831d2ac4",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      }
+    ]
+  },
+  "snapshots": {
+    "latest": {
+      "revision": null,
+      "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-37"
+    },
+    "revisions": {},
+    "unversioned": [
+      {
+        "scope": "full",
+        "id": "5d711b40-354c-4a7d-95c4-9a6e05d6db37-0",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\ee7b0479-c5da-40f1-8d9f-31e5f22906c7\\beat-01-at-0.3s.png",
+        "time": 0.3,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "beat",
+            "label": "hook"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793385766982,
+        "contentHash": "0a804e27ec866a74c1ff1ed9cb2bcd7d15e16fcba9d2e4281a5824e7a8a7d190",
+        "revision": null,
+        "inputFingerprint": "99f468f66bc80b2bf8dcbfc49fa4ff6b4b1fe0cc93bbc0c76ad7b30aa677a61f",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "5d711b40-354c-4a7d-95c4-9a6e05d6db37-1",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\ee7b0479-c5da-40f1-8d9f-31e5f22906c7\\beat-02-at-1.4s.png",
+        "time": 1.4,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "beat",
+            "label": "hook mid"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793385766982,
+        "contentHash": "324d50e3485095d887cfaa8e3cdc6561b881b84e160e13202b501aa76893c245",
+        "revision": null,
+        "inputFingerprint": "99f468f66bc80b2bf8dcbfc49fa4ff6b4b1fe0cc93bbc0c76ad7b30aa677a61f",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "5d711b40-354c-4a7d-95c4-9a6e05d6db37-2",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\ee7b0479-c5da-40f1-8d9f-31e5f22906c7\\beat-03-at-3.1s.png",
+        "time": 3.1,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "beat",
+            "label": "actions"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793385766982,
+        "contentHash": "10a6d40084f783ae0ef502356b61e1de82fc026418d15ac0aa34c9e3e25dd129",
+        "revision": null,
+        "inputFingerprint": "99f468f66bc80b2bf8dcbfc49fa4ff6b4b1fe0cc93bbc0c76ad7b30aa677a61f",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "5d711b40-354c-4a7d-95c4-9a6e05d6db37-3",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\ee7b0479-c5da-40f1-8d9f-31e5f22906c7\\beat-04-at-4.6s.png",
+        "time": 4.6,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "beat",
+            "label": "actions mid"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793385766982,
+        "contentHash": "02d9098af5cb5c91ef825cebaf8794c2098c088966a7b565b995fe8624ac1316",
+        "revision": null,
+        "inputFingerprint": "99f468f66bc80b2bf8dcbfc49fa4ff6b4b1fe0cc93bbc0c76ad7b30aa677a61f",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "5d711b40-354c-4a7d-95c4-9a6e05d6db37-4",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\ee7b0479-c5da-40f1-8d9f-31e5f22906c7\\beat-05-at-6.7s.png",
+        "time": 6.7,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "beat",
+            "label": "app"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793385766983,
+        "contentHash": "8f7df4f96373e64b33e2b1ceecaabd06f93f46da5fd95ca4abe1a58fce4aa354",
+        "revision": null,
+        "inputFingerprint": "99f468f66bc80b2bf8dcbfc49fa4ff6b4b1fe0cc93bbc0c76ad7b30aa677a61f",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "5d711b40-354c-4a7d-95c4-9a6e05d6db37-5",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\ee7b0479-c5da-40f1-8d9f-31e5f22906c7\\beat-06-at-8.3s.png",
+        "time": 8.3,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "beat",
+            "label": "app mid"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793385766983,
+        "contentHash": "648aeb906799c461cccc53f1e24c35d6956b13922952c8ca84046502c543f257",
+        "revision": null,
+        "inputFingerprint": "99f468f66bc80b2bf8dcbfc49fa4ff6b4b1fe0cc93bbc0c76ad7b30aa677a61f",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "5d711b40-354c-4a7d-95c4-9a6e05d6db37-6",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\ee7b0479-c5da-40f1-8d9f-31e5f22906c7\\beat-07-at-10.5s.png",
+        "time": 10.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "beat",
+            "label": "usb"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793385766983,
+        "contentHash": "591ff476d7f37207f4bc660443367450a0e011113e97b039f24048a7974650f5",
+        "revision": null,
+        "inputFingerprint": "99f468f66bc80b2bf8dcbfc49fa4ff6b4b1fe0cc93bbc0c76ad7b30aa677a61f",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "5d711b40-354c-4a7d-95c4-9a6e05d6db37-7",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\ee7b0479-c5da-40f1-8d9f-31e5f22906c7\\beat-08-at-11.7s.png",
+        "time": 11.7,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "beat",
+            "label": "usb mid"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793385766983,
+        "contentHash": "ae3e6f95b690e7efd156f529f7595042bed9f73be8b48f6c8b09d12ab8c38b32",
+        "revision": null,
+        "inputFingerprint": "99f468f66bc80b2bf8dcbfc49fa4ff6b4b1fe0cc93bbc0c76ad7b30aa677a61f",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "5d711b40-354c-4a7d-95c4-9a6e05d6db37-8",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\ee7b0479-c5da-40f1-8d9f-31e5f22906c7\\beat-09-at-13.5s.png",
+        "time": 13.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "beat",
+            "label": "end"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793385766984,
+        "contentHash": "347e0cb2fbec35098cb5d9e8aef99fa9749579bc6b39113bae85c4f442b99b4c",
+        "revision": null,
+        "inputFingerprint": "99f468f66bc80b2bf8dcbfc49fa4ff6b4b1fe0cc93bbc0c76ad7b30aa677a61f",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "5d711b40-354c-4a7d-95c4-9a6e05d6db37-9",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\ee7b0479-c5da-40f1-8d9f-31e5f22906c7\\beat-10-at-14.85s.png",
+        "time": 14.85,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "beat",
+            "label": "end mid"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793385766984,
+        "contentHash": "538c817e0c1282195bc04db66ac18bb01ece1088f5f19e7277406eb244a62aa6",
+        "revision": null,
+        "inputFingerprint": "99f468f66bc80b2bf8dcbfc49fa4ff6b4b1fe0cc93bbc0c76ad7b30aa677a61f",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "5d711b40-354c-4a7d-95c4-9a6e05d6db37-10",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\ee7b0479-c5da-40f1-8d9f-31e5f22906c7\\seam-01-1-at-2.6s.png",
+        "time": 2.6,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "cut -0.2"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793385766984,
+        "contentHash": "9d51a2c1dc0fa801767b89b6067491814f3e164f71adbfabbce3e303f801cb24",
+        "revision": null,
+        "inputFingerprint": "99f468f66bc80b2bf8dcbfc49fa4ff6b4b1fe0cc93bbc0c76ad7b30aa677a61f",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "5d711b40-354c-4a7d-95c4-9a6e05d6db37-11",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\ee7b0479-c5da-40f1-8d9f-31e5f22906c7\\seam-01-2-at-2.7s.png",
+        "time": 2.7,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "-0.1"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793385766985,
+        "contentHash": "f06480835ca7df1399a90e5d8227993cc8332a6256a8b9f497985879da98e937",
+        "revision": null,
+        "inputFingerprint": "99f468f66bc80b2bf8dcbfc49fa4ff6b4b1fe0cc93bbc0c76ad7b30aa677a61f",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "5d711b40-354c-4a7d-95c4-9a6e05d6db37-12",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\ee7b0479-c5da-40f1-8d9f-31e5f22906c7\\seam-01-3-at-2.8s.png",
+        "time": 2.8,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "cut hook -> actions"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793385766985,
+        "contentHash": "191fb5bf329acc19c888581a8f428512c8a8610af98779526ddd4ef700bed202",
+        "revision": null,
+        "inputFingerprint": "99f468f66bc80b2bf8dcbfc49fa4ff6b4b1fe0cc93bbc0c76ad7b30aa677a61f",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "5d711b40-354c-4a7d-95c4-9a6e05d6db37-13",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\ee7b0479-c5da-40f1-8d9f-31e5f22906c7\\seam-01-4-at-2.9s.png",
+        "time": 2.9,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "+0.1"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793385766986,
+        "contentHash": "d70690d7a1047f8ce94f566afe66ec47a923b4cfacf44a8e7fb2b0caad24fd34",
+        "revision": null,
+        "inputFingerprint": "99f468f66bc80b2bf8dcbfc49fa4ff6b4b1fe0cc93bbc0c76ad7b30aa677a61f",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "5d711b40-354c-4a7d-95c4-9a6e05d6db37-14",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\ee7b0479-c5da-40f1-8d9f-31e5f22906c7\\seam-01-5-at-3s.png",
+        "time": 3,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "+0.2"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793385766986,
+        "contentHash": "b120dbbb590a062f4fcbccf8f183d0e2049516f95b9c2817524c50a90523e46d",
+        "revision": null,
+        "inputFingerprint": "99f468f66bc80b2bf8dcbfc49fa4ff6b4b1fe0cc93bbc0c76ad7b30aa677a61f",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "5d711b40-354c-4a7d-95c4-9a6e05d6db37-15",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\ee7b0479-c5da-40f1-8d9f-31e5f22906c7\\seam-02-1-at-6.2s.png",
+        "time": 6.2,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "cut -0.2"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793385766987,
+        "contentHash": "18f07675ebf1a03a638482ddf948cf3bec50eef2cf4d0c787507a595e7054236",
+        "revision": null,
+        "inputFingerprint": "99f468f66bc80b2bf8dcbfc49fa4ff6b4b1fe0cc93bbc0c76ad7b30aa677a61f",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "5d711b40-354c-4a7d-95c4-9a6e05d6db37-16",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\ee7b0479-c5da-40f1-8d9f-31e5f22906c7\\seam-02-2-at-6.3s.png",
+        "time": 6.3,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "-0.1"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793385766988,
+        "contentHash": "18f07675ebf1a03a638482ddf948cf3bec50eef2cf4d0c787507a595e7054236",
+        "revision": null,
+        "inputFingerprint": "99f468f66bc80b2bf8dcbfc49fa4ff6b4b1fe0cc93bbc0c76ad7b30aa677a61f",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "5d711b40-354c-4a7d-95c4-9a6e05d6db37-17",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\ee7b0479-c5da-40f1-8d9f-31e5f22906c7\\seam-02-3-at-6.4s.png",
+        "time": 6.4,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "cut actions -> app"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793385766988,
+        "contentHash": "18f07675ebf1a03a638482ddf948cf3bec50eef2cf4d0c787507a595e7054236",
+        "revision": null,
+        "inputFingerprint": "99f468f66bc80b2bf8dcbfc49fa4ff6b4b1fe0cc93bbc0c76ad7b30aa677a61f",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "5d711b40-354c-4a7d-95c4-9a6e05d6db37-18",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\ee7b0479-c5da-40f1-8d9f-31e5f22906c7\\seam-02-4-at-6.5s.png",
+        "time": 6.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "+0.1"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793385766989,
+        "contentHash": "9b4ba9eefa6d84ff5300791354c99c06fbe4d46e61c173e98b1695839c4de13b",
+        "revision": null,
+        "inputFingerprint": "99f468f66bc80b2bf8dcbfc49fa4ff6b4b1fe0cc93bbc0c76ad7b30aa677a61f",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "5d711b40-354c-4a7d-95c4-9a6e05d6db37-19",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\ee7b0479-c5da-40f1-8d9f-31e5f22906c7\\seam-02-5-at-6.6s.png",
+        "time": 6.6,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "+0.2"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793385766991,
+        "contentHash": "bcb11c291ec568dbf1731baf5e38992adbf8e9c9d23f3dd69f26ff23ebccaa6b",
+        "revision": null,
+        "inputFingerprint": "99f468f66bc80b2bf8dcbfc49fa4ff6b4b1fe0cc93bbc0c76ad7b30aa677a61f",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "5d711b40-354c-4a7d-95c4-9a6e05d6db37-20",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\ee7b0479-c5da-40f1-8d9f-31e5f22906c7\\seam-03-1-at-10s.png",
+        "time": 10,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "cut -0.2"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793385766992,
+        "contentHash": "eb3039577449af62e07dac8863f5a62a5b0852b57d8e669ead2470e070c19a2b",
+        "revision": null,
+        "inputFingerprint": "99f468f66bc80b2bf8dcbfc49fa4ff6b4b1fe0cc93bbc0c76ad7b30aa677a61f",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "5d711b40-354c-4a7d-95c4-9a6e05d6db37-21",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\ee7b0479-c5da-40f1-8d9f-31e5f22906c7\\seam-03-2-at-10.1s.png",
+        "time": 10.1,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "-0.1"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793385766994,
+        "contentHash": "66afe1c7cd3e296a43721ec2143287cb85d088be7810893f2d958252dd86603e",
+        "revision": null,
+        "inputFingerprint": "99f468f66bc80b2bf8dcbfc49fa4ff6b4b1fe0cc93bbc0c76ad7b30aa677a61f",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "5d711b40-354c-4a7d-95c4-9a6e05d6db37-22",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\ee7b0479-c5da-40f1-8d9f-31e5f22906c7\\seam-03-3-at-10.2s.png",
+        "time": 10.2,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "cut app -> usb"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793385766995,
+        "contentHash": "d413fec771b47871cdcbaa6d085df255bd812fb782f3731d49b10e0cc015407f",
+        "revision": null,
+        "inputFingerprint": "99f468f66bc80b2bf8dcbfc49fa4ff6b4b1fe0cc93bbc0c76ad7b30aa677a61f",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "5d711b40-354c-4a7d-95c4-9a6e05d6db37-23",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\ee7b0479-c5da-40f1-8d9f-31e5f22906c7\\seam-03-4-at-10.3s.png",
+        "time": 10.3,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "+0.1"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793385766996,
+        "contentHash": "900ddab123ac6cf9a79e112b072756392e406b98ae40a424f5497c0442913015",
+        "revision": null,
+        "inputFingerprint": "99f468f66bc80b2bf8dcbfc49fa4ff6b4b1fe0cc93bbc0c76ad7b30aa677a61f",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "5d711b40-354c-4a7d-95c4-9a6e05d6db37-24",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\ee7b0479-c5da-40f1-8d9f-31e5f22906c7\\seam-03-5-at-10.4s.png",
+        "time": 10.4,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "+0.2"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793385766997,
+        "contentHash": "d85e63f4724e90238d197dc697f40c9a2232cd0d722dc0a484fbe60ae0cc7ebb",
+        "revision": null,
+        "inputFingerprint": "99f468f66bc80b2bf8dcbfc49fa4ff6b4b1fe0cc93bbc0c76ad7b30aa677a61f",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "5d711b40-354c-4a7d-95c4-9a6e05d6db37-25",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\ee7b0479-c5da-40f1-8d9f-31e5f22906c7\\seam-04-1-at-13s.png",
+        "time": 13,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "cut -0.2"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793385766998,
+        "contentHash": "2d1c08110c7ab2adfbdeed6ba33343ab1f2e223daaeaa216c0563d9e9b80745c",
+        "revision": null,
+        "inputFingerprint": "99f468f66bc80b2bf8dcbfc49fa4ff6b4b1fe0cc93bbc0c76ad7b30aa677a61f",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "5d711b40-354c-4a7d-95c4-9a6e05d6db37-26",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\ee7b0479-c5da-40f1-8d9f-31e5f22906c7\\seam-04-2-at-13.1s.png",
+        "time": 13.1,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "-0.1"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793385766999,
+        "contentHash": "2d1c08110c7ab2adfbdeed6ba33343ab1f2e223daaeaa216c0563d9e9b80745c",
+        "revision": null,
+        "inputFingerprint": "99f468f66bc80b2bf8dcbfc49fa4ff6b4b1fe0cc93bbc0c76ad7b30aa677a61f",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "5d711b40-354c-4a7d-95c4-9a6e05d6db37-27",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\ee7b0479-c5da-40f1-8d9f-31e5f22906c7\\seam-04-3-at-13.2s.png",
+        "time": 13.2,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "cut usb -> end"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793385767000,
+        "contentHash": "cdbe7d0b1e72940d3248f535caf26ba55c7ca1f3d8ede1fb2caeb219c5308fc3",
+        "revision": null,
+        "inputFingerprint": "99f468f66bc80b2bf8dcbfc49fa4ff6b4b1fe0cc93bbc0c76ad7b30aa677a61f",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "5d711b40-354c-4a7d-95c4-9a6e05d6db37-28",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\ee7b0479-c5da-40f1-8d9f-31e5f22906c7\\seam-04-4-at-13.3s.png",
+        "time": 13.3,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "+0.1"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793385767001,
+        "contentHash": "c89811334b330c6c7d42899dc6c726f4301927194386a02c1c3e0489b49e8f6a",
+        "revision": null,
+        "inputFingerprint": "99f468f66bc80b2bf8dcbfc49fa4ff6b4b1fe0cc93bbc0c76ad7b30aa677a61f",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "5d711b40-354c-4a7d-95c4-9a6e05d6db37-29",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\ee7b0479-c5da-40f1-8d9f-31e5f22906c7\\seam-04-5-at-13.4s.png",
+        "time": 13.4,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "+0.2"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793385767003,
+        "contentHash": "45cfe3b178590cbde012071ba8dc656e14660fc6c2723443be67bfb5214376f7",
+        "revision": null,
+        "inputFingerprint": "99f468f66bc80b2bf8dcbfc49fa4ff6b4b1fe0cc93bbc0c76ad7b30aa677a61f",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "568eafd4-a66c-4cf6-b1e2-38021b9c76c0-0",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\8ce9ea34-cfa3-4fb0-b39e-d99b9edc64d4\\frame-00-at-0s.png",
+        "time": 0,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793385848288,
+        "contentHash": "c7432cf56f36129ca40a6d4cb3c2f316422b5fa6d34fa635f1daadd2f4777ee3",
+        "revision": null,
+        "inputFingerprint": "58f3b25e753a28dad79167ed89aecc4173183ab0d04d7d1d107c817fd18b3791",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "568eafd4-a66c-4cf6-b1e2-38021b9c76c0-1",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\8ce9ea34-cfa3-4fb0-b39e-d99b9edc64d4\\frame-01-at-8.6s.png",
+        "time": 8.6,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793385848383,
+        "contentHash": "60d66d07df75f3806748b77a4e37cfba3af0168fb27038739afa50033d84250c",
+        "revision": null,
+        "inputFingerprint": "58f3b25e753a28dad79167ed89aecc4173183ab0d04d7d1d107c817fd18b3791",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "568eafd4-a66c-4cf6-b1e2-38021b9c76c0-2",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\8ce9ea34-cfa3-4fb0-b39e-d99b9edc64d4\\frame-02-at-11s.png",
+        "time": 11,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793385848460,
+        "contentHash": "069ba4d473d7574fd70245420a868ac35172db21ab4a90b33a28adcf2ff4ce29",
+        "revision": null,
+        "inputFingerprint": "58f3b25e753a28dad79167ed89aecc4173183ab0d04d7d1d107c817fd18b3791",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "568eafd4-a66c-4cf6-b1e2-38021b9c76c0-3",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\8ce9ea34-cfa3-4fb0-b39e-d99b9edc64d4\\frame-03-at-15.5s.png",
+        "time": 15.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793385848462,
+        "contentHash": "92b35fc279e87a7ccb4986f06a6d5a9585abb7d5a74980d218488eaa7f4f896f",
+        "revision": null,
+        "inputFingerprint": "58f3b25e753a28dad79167ed89aecc4173183ab0d04d7d1d107c817fd18b3791",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "568eafd4-a66c-4cf6-b1e2-38021b9c76c0-4",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\8ce9ea34-cfa3-4fb0-b39e-d99b9edc64d4\\frame-04-at-16.25s.png",
+        "time": 16.25,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793385848463,
+        "contentHash": "92b35fc279e87a7ccb4986f06a6d5a9585abb7d5a74980d218488eaa7f4f896f",
+        "revision": null,
+        "inputFingerprint": "58f3b25e753a28dad79167ed89aecc4173183ab0d04d7d1d107c817fd18b3791",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-0",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\beat-01-at-0.3s.png",
+        "time": 0.3,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "beat",
+            "label": "hook + progress"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386678801,
+        "contentHash": "d77d0071d696dd8e9c0f6b072c5bc0fe9fa857f4663a2f88f977768d018ede11",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-1",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\beat-02-at-1.4s.png",
+        "time": 1.4,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "beat",
+            "label": "hook mid"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386678804,
+        "contentHash": "edc21d8e53ae5adef0fa45ca7b5c79acd9d6a3e52c994819bba447713ae05f21",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-2",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\beat-03-at-3.1s.png",
+        "time": 3.1,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "beat",
+            "label": "actions"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386678806,
+        "contentHash": "61a9b7579650dd3c949f9d8ad9ecec6ffbed7bb0a992da2f0e159ad01d3cf3c1",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-3",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\beat-04-at-4.6s.png",
+        "time": 4.6,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "beat",
+            "label": "actions mid"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386678808,
+        "contentHash": "65ecf66960efdb75e2d00134b5e0e23ea47d23abc78ba43029055a1d60943ffb",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-4",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\beat-05-at-6.7s.png",
+        "time": 6.7,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "beat",
+            "label": "app"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386678812,
+        "contentHash": "fc8e3a44253c4af61f50c548d28b1831094d85356aef8722348af9e1eb9bfe93",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-5",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\beat-06-at-8.3s.png",
+        "time": 8.3,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "beat",
+            "label": "app mid"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386678815,
+        "contentHash": "7c18d8b58f07b7f482bd60d6dfda3457c643613975cfbbbd1abe392cf364de9d",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-6",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\beat-07-at-9.95s.png",
+        "time": 9.95,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "beat",
+            "label": "progress mid"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386678819,
+        "contentHash": "c7a9418135f9b601fd5de7723910cc8bb8b891ffd6943df2bc2cadd2d67cc23e",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-7",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\beat-08-at-10.5s.png",
+        "time": 10.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "beat",
+            "label": "usb"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386678823,
+        "contentHash": "bc875b0b8155cba0c5d900f5c78097d1ade5a188cfe17a632b72ae3d25e58b5c",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-8",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\beat-09-at-11.7s.png",
+        "time": 11.7,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "beat",
+            "label": "usb mid"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386678825,
+        "contentHash": "4c8002f0cd4a9c42b65a19ca0c53232ba173a988b137f6495444dff1c7101660",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-9",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\beat-10-at-13.5s.png",
+        "time": 13.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "beat",
+            "label": "open"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386678827,
+        "contentHash": "e2a687e0dee7dc4957d652b02379c6f5484744d6fc9e6d58d40864b2fb559fe5",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-10",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\beat-11-at-14.9s.png",
+        "time": 14.9,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "beat",
+            "label": "open mid"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386678830,
+        "contentHash": "2c4cc08ac09bf800acf34afe12279b5a75ff4b1b05b4416a0823c165e62f0aa0",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-11",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\beat-12-at-16.9s.png",
+        "time": 16.9,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "beat",
+            "label": "end"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386678832,
+        "contentHash": "13a1c5edb30500f5a78ab1e6f9ba1a0afcb9c1f5571fd3e728dc844cebd305cf",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-12",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\beat-13-at-18.25s.png",
+        "time": 18.25,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "beat",
+            "label": "end mid"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386678834,
+        "contentHash": "92b35fc279e87a7ccb4986f06a6d5a9585abb7d5a74980d218488eaa7f4f896f",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-13",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\seam-01-1-at-2.6s.png",
+        "time": 2.6,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "cut -0.2"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386678837,
+        "contentHash": "e485b0625264923c883ca8bd833f2faee390585a7385e2b1f9bdf4e382c06411",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-14",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\seam-01-2-at-2.7s.png",
+        "time": 2.7,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "-0.1"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386678841,
+        "contentHash": "c2206e3ee26685141d7f6fee2fa2fc42e083012cbfbd8303d01ca6ac2742e0b9",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-15",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\seam-01-3-at-2.8s.png",
+        "time": 2.8,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "cut hook -> actions"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386678867,
+        "contentHash": "167f9c03fd56810a7aa03269c52d140ae42fd26f197e3ac3f25c6dd8beed84a7",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-16",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\seam-01-4-at-2.9s.png",
+        "time": 2.9,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "+0.1"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386678872,
+        "contentHash": "685c67d868ada5ca24de7e390dc6fde12d76a2aa5861bc67851a8feac55969bd",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-17",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\seam-01-5-at-3s.png",
+        "time": 3,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "+0.2"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386678879,
+        "contentHash": "1d8eef492678545dc29e3b1417a0cd3668c22adae6214f2e6bf2916e05df0e3a",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-18",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\seam-02-1-at-6.2s.png",
+        "time": 6.2,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "cut -0.2"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386678889,
+        "contentHash": "966826ff4d0d57b1f1ed7efac6ebc856a47c4261cdc33630657603feff754ea2",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-19",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\seam-02-2-at-6.3s.png",
+        "time": 6.3,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "-0.1"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386678893,
+        "contentHash": "966826ff4d0d57b1f1ed7efac6ebc856a47c4261cdc33630657603feff754ea2",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-20",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\seam-02-3-at-6.4s.png",
+        "time": 6.4,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "cut actions -> app"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386678908,
+        "contentHash": "966826ff4d0d57b1f1ed7efac6ebc856a47c4261cdc33630657603feff754ea2",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-21",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\seam-02-4-at-6.5s.png",
+        "time": 6.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "+0.1"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386678911,
+        "contentHash": "4979ba2cdf92d5a00965872e5fd7d98dc312dc7da466ddd5c5bff832ae8f2b02",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-22",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\seam-02-5-at-6.6s.png",
+        "time": 6.6,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "+0.2"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386678915,
+        "contentHash": "c36920412f6b12ca1001eb2abcf08671595c8586510960f3020540f67ab4ed95",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-23",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\seam-03-1-at-10s.png",
+        "time": 10,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "cut -0.2"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386678921,
+        "contentHash": "caea88ee714e7dc737994d22399f25976d001b9e7dc87c0d2c6a32aaa4766d65",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-24",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\seam-03-2-at-10.1s.png",
+        "time": 10.1,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "-0.1"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386678924,
+        "contentHash": "4bd875991c67ef5af2a9ec30bc19e1e7f3e23ac5df03096c9b87962eba237590",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-25",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\seam-03-3-at-10.2s.png",
+        "time": 10.2,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "cut app -> usb"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386678929,
+        "contentHash": "b51eceb6c49e492f937e434dc997c47d1419d1fc5503b19836d6cfb24492a084",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-26",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\seam-03-4-at-10.3s.png",
+        "time": 10.3,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "+0.1"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386678933,
+        "contentHash": "7bfcbef108828878810e362a6d0b71659912b17550acb09b13869e11128420fa",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-27",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\seam-03-5-at-10.4s.png",
+        "time": 10.4,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "+0.2"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386678952,
+        "contentHash": "c7de51c772cfe7ba359ba876b85851f9ac7be91edc88a8e40d94af7e012c70dc",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-28",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\seam-04-1-at-13s.png",
+        "time": 13,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "cut -0.2"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386678960,
+        "contentHash": "6aa171ea4ec18847cf7457ce6629b4a9eec1e19b312e1c0acfb3c47817580675",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-29",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\seam-04-2-at-13.1s.png",
+        "time": 13.1,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "-0.1"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386678965,
+        "contentHash": "6aa171ea4ec18847cf7457ce6629b4a9eec1e19b312e1c0acfb3c47817580675",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-30",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\seam-04-3-at-13.2s.png",
+        "time": 13.2,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "cut usb -> open"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386678968,
+        "contentHash": "3aaaaac23cff273835fbdf29b30bd8995c59084a3a8f2a3c4a736f886ccf150c",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-31",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\seam-04-4-at-13.3s.png",
+        "time": 13.3,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "+0.1"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386678973,
+        "contentHash": "3aaaaac23cff273835fbdf29b30bd8995c59084a3a8f2a3c4a736f886ccf150c",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-32",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\seam-04-5-at-13.4s.png",
+        "time": 13.4,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "+0.2"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386678987,
+        "contentHash": "1177767e841f7ccce7bdf3e4fbb4da6b7dfbd91c3e7a064f6ad3a21425e20de1",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-33",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\seam-05-1-at-16.4s.png",
+        "time": 16.4,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "cut -0.2"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386678992,
+        "contentHash": "3eb6f00b51ef6863fa172588c8d1ed4e79e497b7bba06b468f7185830fd84de8",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-34",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\seam-05-2-at-16.5s.png",
+        "time": 16.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "-0.1"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386678997,
+        "contentHash": "d6663a83177d4856b1588ecdddf8068c45fc681ba3d16a5baed9e566b2b729e7",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-35",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\seam-05-3-at-16.6s.png",
+        "time": 16.6,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "cut open -> end"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386679001,
+        "contentHash": "a1951db3feca175b573fa5559f06053253715aa7be801ca24604394dc365e2b1",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-36",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\seam-05-4-at-16.7s.png",
+        "time": 16.7,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "+0.1"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386679007,
+        "contentHash": "71847d9b9db5fedff6343da4f353a2e48f3d9abe12e32ee7646ae2275d283b45",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "331aabcd-fbc6-4f5b-ac1a-79e794817230-37",
+        "image": "G:\\andre\\ClickDeck\\video\\.hyperframes\\artifacts\\snapshots\\d6205364-7bbe-4320-a1fa-7a5e82d061a5\\seam-05-5-at-16.8s.png",
+        "time": 16.8,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "review": {
+            "role": "seam",
+            "label": "+0.2"
+          },
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793386679012,
+        "contentHash": "c1fd4872fe517da43409ab67d263416ddf4937da1892a37d1d1f218cd9eed6aa",
+        "revision": null,
+        "inputFingerprint": "a896e363c9a5b9ab082b887bf5e65efa3765778f2f4d5be35108ab4bc11c2b30",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
+  }
+}

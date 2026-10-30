@@ -3,6 +3,7 @@
 import copy
 import os
 import tempfile
+import time
 import tkinter as tk
 from tkinter import colorchooser, filedialog, messagebox
 from urllib.parse import urlparse
@@ -10,7 +11,7 @@ from urllib.parse import urlparse
 import customtkinter as ctk
 
 from .icon import save_ico
-from . import foreground
+from . import actions, foreground
 from .listener import port_labels
 from .config import (ACTION_TYPES, COLOR_NAMES, LED_MODES, MAX_PROFILES, MODES, NUM_BUTTONS, PALETTE,
                      empty_profile, resolve)
@@ -25,14 +26,15 @@ FIELD = "#272b36"
 MUTED = "#8b90a0"
 DARK_TEXT = "#10131a"
 
-ICONS = {"none": "＋", "program": "🚀", "url": "🌐", "command": ">_", "hotkey": "⚡", "focus": "🪟"}
+ICONS = {"none": "＋", "program": "🚀", "url": "🌐", "command": ">_", "hotkey": "⚡", "click": "🎯", "focus": "🪟"}
 SHORT = {"none": "Nenhuma", "program": "Programa", "url": "Site", "command": "Comando",
-         "hotkey": "Atalho", "focus": "Abrir/focar"}
+         "hotkey": "Atalho", "click": "Clicar", "focus": "Abrir/focar"}
 PLACEHOLDERS = {
     "program": ("calc.exe ou C:\\...\\programa.exe", "Opcional"),
     "url": ("https://…", ""),
     "command": ("ex: shutdown /l", ""),
     "hotkey": ("ex: ctrl+shift+m", ""),
+    "click": ("grava com 🎯 ou escreve ex: 120,48", ""),
     "focus": ("C:\\...\\programa.exe (se não estiver aberto)", "ex: Spotify"),
 }
 SWATCHES_PER_ROW = 6
@@ -393,8 +395,8 @@ class ConfigWindow:
             if b["type"] in ("program", "focus"):
                 self.side_btn.configure(text="📂")
                 self.side_btn.pack(side="left", padx=(6, 0))
-            elif b["type"] == "hotkey":
-                self.side_btn.configure(text="⏺")
+            elif b["type"] in ("hotkey", "click"):
+                self.side_btn.configure(text="⏺" if b["type"] == "hotkey" else "🎯")
                 self.side_btn.pack(side="left", padx=(6, 0))
         if label2:
             self.l2.configure(text=label2)
@@ -442,11 +444,36 @@ class ConfigWindow:
                 self.side_btn.configure(text="…", fg_color=self.colors[self.sel])
                 self.set_status("Prime o atalho que queres gravar (ex: Ctrl+Shift+M).")
                 self.root.focus_set()
+        elif kind == "click":
+            self._record_click()
         else:
             path = filedialog.askopenfilename(title="Escolher programa ou ficheiro")
             if path:
                 self._set_entry(self.e1, path.replace("/", "\\"))
                 self._edited()
+
+    def _record_click(self):
+        """Espera um clique do rato noutra janela e guarda a posição relativa a essa janela."""
+        self.set_status("Vai à janela do programa e clica no botão que queres. A gravar durante 15 segundos…")
+        self._click_deadline = time.time() + 15
+        self._click_armed = False
+        self.root.after(50, self._poll_click)
+
+    def _poll_click(self):
+        if time.time() > self._click_deadline:
+            self.set_status("Não detetei nenhum clique: tenta de novo.", error=True)
+            return
+        down = actions.left_button_down()
+        if not down:
+            self._click_armed = True                    # só conta depois de largar o clique em «🎯»
+        elif self._click_armed:
+            hit = actions.cursor_in_window()
+            if hit and hit[0] != os.getpid():
+                self._set_entry(self.e1, hit[1])
+                self._edited()
+                self.set_status(f"Posição gravada: {hit[1]}. Usa «Testar» com essa janela à frente.")
+                return
+        self.root.after(30, self._poll_click)
 
     def _stop_recording(self):
         if self._recording:

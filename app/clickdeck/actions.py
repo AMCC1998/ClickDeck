@@ -1,6 +1,7 @@
 """Execução das ações dos botões. Qualquer falha levanta ActionError com mensagem legível."""
 
 import ctypes
+import re
 import subprocess
 import time
 import webbrowser
@@ -23,6 +24,28 @@ VK_MENU = 0x12
 
 class ActionError(Exception):
     pass
+
+
+class _POINT(ctypes.Structure):
+    _fields_ = [("x", wintypes.LONG), ("y", wintypes.LONG)]
+
+
+user32.GetCursorPos.argtypes = [ctypes.POINTER(_POINT)]
+user32.SetCursorPos.argtypes = [ctypes.c_int, ctypes.c_int]
+user32.WindowFromPoint.restype = wintypes.HWND
+user32.WindowFromPoint.argtypes = [_POINT]
+user32.GetAncestor.restype = wintypes.HWND
+user32.GetAncestor.argtypes = [wintypes.HWND, wintypes.UINT]
+user32.GetWindowRect.argtypes = [wintypes.HWND, ctypes.POINTER(wintypes.RECT)]
+user32.GetForegroundWindow.restype = wintypes.HWND
+user32.GetWindowThreadProcessId.argtypes = [wintypes.HWND, ctypes.POINTER(wintypes.DWORD)]
+user32.GetAsyncKeyState.argtypes = [ctypes.c_int]
+user32.mouse_event.argtypes = [wintypes.DWORD, wintypes.DWORD, wintypes.DWORD, wintypes.DWORD, ctypes.c_void_p]
+
+VK_LBUTTON = 0x01
+MOUSEEVENTF_LEFTDOWN = 0x0002
+MOUSEEVENTF_LEFTUP = 0x0004
+GA_ROOT = 2
 
 
 def run(button: dict) -> None:
@@ -117,6 +140,51 @@ def _hotkey(target, extra):
         _key_event(vk, up=True)
 
 
+# ---- clique numa posição da janela -----------------------------------------------
+
+def left_button_down() -> bool:
+    return bool(user32.GetAsyncKeyState(VK_LBUTTON) & 0x8000)
+
+
+def cursor_in_window():
+    """(pid da janela sob o cursor, «x,y» relativo ao canto da janela) ou None."""
+    pt = _POINT()
+    user32.GetCursorPos(ctypes.byref(pt))
+    hwnd = user32.WindowFromPoint(pt)
+    hwnd = user32.GetAncestor(hwnd, GA_ROOT) if hwnd else None
+    if not hwnd:
+        return None
+    rect = wintypes.RECT()
+    user32.GetWindowRect(hwnd, ctypes.byref(rect))
+    pid = wintypes.DWORD()
+    user32.GetWindowThreadProcessId(hwnd, ctypes.byref(pid))
+    return pid.value, f"{pt.x - rect.left},{pt.y - rect.top}"
+
+
+def _click(target, extra):
+    m = re.fullmatch(r"\s*(-?\d+)\s*,\s*(-?\d+)\s*", target)
+    if not m:
+        raise ActionError("Posição inválida: grava com 🎯 ou escreve «x,y» (pixels desde o canto da janela).")
+    dx, dy = int(m.group(1)), int(m.group(2))
+    hwnd = user32.GetForegroundWindow()
+    if not hwnd:
+        raise ActionError("Não há nenhuma janela à frente onde clicar.")
+    rect = wintypes.RECT()
+    user32.GetWindowRect(hwnd, ctypes.byref(rect))
+    x, y = rect.left + dx, rect.top + dy
+    if not (rect.left <= x < rect.right and rect.top <= y < rect.bottom):
+        raise ActionError("A posição gravada fica fora da janela (tamanho diferente?). Grava-a de novo.")
+    old = _POINT()
+    user32.GetCursorPos(ctypes.byref(old))
+    user32.SetCursorPos(x, y)
+    time.sleep(0.05)                    # deixa a app ver o cursor por cima do botão
+    user32.mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, None)
+    time.sleep(0.03)
+    user32.mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, None)
+    time.sleep(0.05)
+    user32.SetCursorPos(old.x, old.y)
+
+
 # ---- abrir ou focar --------------------------------------------------------------
 
 _WNDENUMPROC = ctypes.WINFUNCTYPE(wintypes.BOOL, wintypes.HWND, wintypes.LPARAM)
@@ -165,5 +233,6 @@ _HANDLERS = {
     "url": _url,
     "command": _command,
     "hotkey": _hotkey,
+    "click": _click,
     "focus": _focus,
 }

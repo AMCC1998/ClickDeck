@@ -47,7 +47,7 @@ Sem díodos nem resistências para os botões. O preço depende dos fornecedores
 ## Funcionalidades
 
 - 8 botões que a Pro Micro envia como teclado USB (F13–F20); a app trata-os como atalhos globais, sem administrador.
-- Cada botão pode abrir um programa ou ficheiro, um site, correr um comando, enviar um atalho de teclado, ou abrir/focar uma app.
+- Cada botão pode abrir um programa ou ficheiro, um site, correr um comando, enviar um atalho de teclado, **clicar num ponto da janela** (por exemplo num botão da barra de ferramentas que não tem atalho) ou abrir/focar uma app.
 - **Perfis por aplicação:** as teclas mudam sozinhas conforme a janela que está à frente (por exemplo, outras ações no Fusion 360).
 - Nome e cor da capa por tecla, para coincidir com as capas impressas de várias cores.
 - **Barra de LEDs WS2812** controlada pela app: cores das teclas, uma cor por LED, cor única, arco-íris, respirar, brilho e clarão ao premir.
@@ -131,10 +131,11 @@ pip install -r requirements.txt
 python main.py
 ```
 
-- A janela mostra as 8 teclas desenhadas (acendem quando carregas no botão físico). **Clica numa tecla** para a configurar no painel da direita: nome, cor e o que faz (programa/ficheiro, site, comando, atalho de teclado, abrir ou focar app). **Duplo clique** numa tecla experimenta-a; o botão **Testar** faz o mesmo. Nos atalhos, o botão ⏺ grava a combinação que premires.
+- A janela mostra as 8 teclas desenhadas (acendem quando carregas no botão físico). **Clica numa tecla** para a configurar no painel da direita: nome, cor e o que faz (programa/ficheiro, site, comando, atalho de teclado, clique numa posição, abrir ou focar app). **Duplo clique** numa tecla experimenta-a; o botão **Testar** faz o mesmo. Nos atalhos, o botão ⏺ grava a combinação que premires.
 - As alterações são guardadas automaticamente. Fechar a janela deixa a app na bandeja (clica no ícone para reabrir, ou «Sair» no menu).
 - Só corre uma instância: se abrires o ClickDeck outra vez, a janela da que já está aberta aparece (a porta da placa e as teclas F13–F20 só podem ter um dono).
 - **Luzes:** o cartão «Luzes» controla a barra de LEDs (modo, brilho, cor, «acender ao premir»). No modo «Cores das teclas» cada LED mostra a cor da capa da tecla correspondente; em «Cores personalizadas» escolhes a cor de cada LED (cliques nos círculos 1–8); «Cor única» usa o botão «Cor». O seletor «Porta» (⟳ para atualizar) permite escolher a porta COM se a deteção automática não a encontrar. A app fala com a placa pela porta série USB (procura sozinha a porta da Arduino/SparkFun e confirma que é o ClickDeck); se não houver barra ou firmware com luzes, só mostra o aviso. Não funciona no modo «Série».
+- **Clicar num ponto da janela:** em «Clicar», carrega em 🎯 e, nos 15 segundos seguintes, clica no botão do programa que queres (por exemplo, um ícone do Fusion 360). A app guarda a posição relativa ao canto dessa janela e, ao premir o botão físico, clica aí com o rato (e devolve o cursor ao sítio onde estava). Funciona se a janela tiver o mesmo tamanho e estiver maximizada ou no mesmo sítio; se mudares o layout, grava de novo.
 - **Perfis por app:** o seletor «Perfil» (＋ novo, ✎ renomear, 🗑 apagar) permite ter teclas diferentes para cada programa. O perfil «Geral» é o de base; num perfil novo usa «Detetar» (muda para a app em 4 segundos) para dizer quando fica ativo, por exemplo `Fusion360.exe`. Uma tecla deixada vazia nesse perfil faz o mesmo que no Geral. A app muda de perfil sozinha conforme a janela que estiver à frente.
 - Modo **Simulação** (no seletor «Modo»): não escuta hardware; usa o duplo clique nas teclas.
 - Por omissão: botão 1 abre `https://claude.ai/new` e botão 2 abre `calc.exe`.

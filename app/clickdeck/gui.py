@@ -34,7 +34,7 @@ PLACEHOLDERS = {
     "program": ("calc.exe ou C:\\...\\programa.exe", "Opcional"),
     "url": ("https://…", ""),
     "command": ("ex: shutdown /l", ""),
-    "hotkey": ("ex: ctrl+alt+shift+m; ctrl+alt+shift+t", ""),
+    "hotkey": ("ex: ctrl+alt+shift+m,0.5; ctrl+alt+shift+n", ""),
     "click": ("grava com 🎯 ou escreve ex: R 812,455; @34,88", ""),
     "focus": ("C:\\...\\programa.exe (se não estiver aberto)", "ex: Spotify ou Spotify.exe"),
 }

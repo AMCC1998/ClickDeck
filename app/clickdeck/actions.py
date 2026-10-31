@@ -131,30 +131,34 @@ def _key_event(vk: int, up: bool) -> None:
 
 
 def _hotkey(target, extra):
-    """Um ou mais atalhos separados por «;» (ex: «ctrl+alt+shift+m; ctrl+alt+shift+t»); «w300» espera 300 ms."""
+    """Atalhos separados por «;». Depois de um atalho, «,segundos» define a espera a seguir
+    (ex: «ctrl+alt+shift+m,0.5; ctrl+alt+shift+n»). Sem isso espera 0,15 s. «w300» também espera (ms)."""
     if not target:
         raise ActionError("Indica o atalho (ex: ctrl+shift+m).")
-    steps = []
-    for part in re.split(r"[;,]", target):
+    steps = []          # (teclas, espera depois) ou (None, espera)
+    for part in target.split(";"):
         part = part.strip().lower()
         if not part:
             continue
         if re.fullmatch(r"w\s*\d+", part):
-            steps.append(int(part[1:]) / 1000)
-        else:
-            steps.append([_vk(n.strip()) for n in part.split("+") if n.strip()])  # valida tudo antes de enviar
+            steps.append((None, int(part[1:]) / 1000))
+            continue
+        combo, _, delay = part.partition(",")
+        try:
+            wait = float(delay.strip().replace(",", ".")) if delay.strip() else 0.15
+        except ValueError:
+            raise ActionError(f"Espera inválida no atalho: «{delay.strip()}» (usa segundos, ex: 0.2).") from None
+        steps.append(([_vk(n.strip()) for n in combo.split("+") if n.strip()], wait))  # valida tudo antes de enviar
     if not steps:
         raise ActionError("Atalho vazio.")
-    for i, step in enumerate(steps):
-        if isinstance(step, float):
-            time.sleep(step)
-            continue
-        for vk in step:
-            _key_event(vk, up=False)
-        for vk in reversed(step):
-            _key_event(vk, up=True)
-        if i < len(steps) - 1 and not isinstance(steps[i + 1], float):
-            time.sleep(0.15)
+    for i, (keys, wait) in enumerate(steps):
+        if keys:
+            for vk in keys:
+                _key_event(vk, up=False)
+            for vk in reversed(keys):
+                _key_event(vk, up=True)
+        if i < len(steps) - 1:
+            time.sleep(wait)
 
 
 # ---- cliques numa janela ----------------------------------------------------------

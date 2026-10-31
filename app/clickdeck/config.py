@@ -24,7 +24,7 @@ ACTION_TYPES = {
     "program": ("Abrir programa ou ficheiro", "Caminho", "Argumentos"),
     "url": ("Abrir URL", "URL", None),
     "command": ("Executar comando", "Comando", None),
-    "hotkey": ("Enviar atalho de teclado", "Atalho — vários separados por «;», espera em segundos a seguir à vírgula\nex: ctrl+alt+shift+m,0.5; ctrl+alt+shift+n", None),
+    "hotkey": ("Enviar atalho de teclado", "Atalho — vários separados por «;», espera em segundos a seguir à vírgula; «|» alterna a cada toque\nex: ctrl+alt+shift+m,0.5; ctrl+alt+shift+n | ctrl+alt+shift+m", None),
     "click": ("Clicar na janela", "Cliques (x,y desde o canto da janela)", None),
     "focus": ("Abrir ou focar app", "Programa a abrir", "Título da janela ou nome do .exe"),
 }

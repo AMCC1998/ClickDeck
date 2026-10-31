@@ -130,13 +130,35 @@ def _key_event(vk: int, up: bool) -> None:
     user32.keybd_event(vk, 0, flags, 0)
 
 
+_cycle = {}         # alternativas «|»: qual a próxima a executar, por texto do atalho
+
+
 def _hotkey(target, extra):
-    """Atalhos separados por «;». Depois de um atalho, «,segundos» define a espera a seguir
+    """Alternativas separadas por «|» (cada toque executa a seguinte, em ciclo).
+    Em cada uma: atalhos separados por «;». Depois de um atalho, «,segundos» define a espera a seguir
     (ex: «ctrl+alt+shift+m,0.5; ctrl+alt+shift+n»). Sem isso espera 0,15 s. «w300» também espera (ms)."""
     if not target:
         raise ActionError("Indica o atalho (ex: ctrl+shift+m).")
+    alts = [a for a in target.split("|") if a.strip()]
+    parsed = [_parse_hotkeys(a) for a in alts]          # valida todas antes de enviar
+    if not parsed:
+        raise ActionError("Atalho vazio.")
+    i = _cycle.get(target, 0) % len(parsed)
+    _cycle[target] = (i + 1) % len(parsed)
+    steps = parsed[i]
+    for i, (keys, wait) in enumerate(steps):
+        if keys:
+            for vk in keys:
+                _key_event(vk, up=False)
+            for vk in reversed(keys):
+                _key_event(vk, up=True)
+        if i < len(steps) - 1:
+            time.sleep(wait)
+
+
+def _parse_hotkeys(text):
     steps = []          # (teclas, espera depois) ou (None, espera)
-    for part in target.split(";"):
+    for part in text.split(";"):
         part = part.strip().lower()
         if not part:
             continue
@@ -151,14 +173,7 @@ def _hotkey(target, extra):
         steps.append(([_vk(n.strip()) for n in combo.split("+") if n.strip()], wait))  # valida tudo antes de enviar
     if not steps:
         raise ActionError("Atalho vazio.")
-    for i, (keys, wait) in enumerate(steps):
-        if keys:
-            for vk in keys:
-                _key_event(vk, up=False)
-            for vk in reversed(keys):
-                _key_event(vk, up=True)
-        if i < len(steps) - 1:
-            time.sleep(wait)
+    return steps
 
 
 # ---- cliques numa janela ----------------------------------------------------------

@@ -327,7 +327,8 @@ class ConfigWindow:
 
         self.fields = ctk.CTkFrame(ed, fg_color="transparent")
         self.fields.pack(fill="x", padx=20, pady=(10, 0))
-        self.l1 = ctk.CTkLabel(self.fields, text="", text_color=MUTED, font=ctk.CTkFont(size=12))
+        self.l1 = ctk.CTkLabel(self.fields, text="", text_color=MUTED, font=ctk.CTkFont(size=12),
+                               justify="left", anchor="w", wraplength=330)
         self.row1 = ctk.CTkFrame(self.fields, fg_color="transparent")
         self.e1 = ctk.CTkEntry(self.row1, fg_color=FIELD, border_width=0, height=36)
         self.e1.pack(side="left", fill="x", expand=True)

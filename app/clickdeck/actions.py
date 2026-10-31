@@ -131,16 +131,30 @@ def _key_event(vk: int, up: bool) -> None:
 
 
 def _hotkey(target, extra):
+    """Um ou mais atalhos separados por «;» (ex: «ctrl+alt+shift+m; ctrl+alt+shift+t»); «w300» espera 300 ms."""
     if not target:
         raise ActionError("Indica o atalho (ex: ctrl+shift+m).")
-    names = [p.strip().lower() for p in target.split("+") if p.strip()]
-    if not names:
+    steps = []
+    for part in re.split(r"[;,]", target):
+        part = part.strip().lower()
+        if not part:
+            continue
+        if re.fullmatch(r"w\s*\d+", part):
+            steps.append(int(part[1:]) / 1000)
+        else:
+            steps.append([_vk(n.strip()) for n in part.split("+") if n.strip()])  # valida tudo antes de enviar
+    if not steps:
         raise ActionError("Atalho vazio.")
-    keys = [_vk(n) for n in names]  # valida tudo antes de enviar
-    for vk in keys:
-        _key_event(vk, up=False)
-    for vk in reversed(keys):
-        _key_event(vk, up=True)
+    for i, step in enumerate(steps):
+        if isinstance(step, float):
+            time.sleep(step)
+            continue
+        for vk in step:
+            _key_event(vk, up=False)
+        for vk in reversed(step):
+            _key_event(vk, up=True)
+        if i < len(steps) - 1 and not isinstance(steps[i + 1], float):
+            time.sleep(0.15)
 
 
 # ---- cliques numa janela ----------------------------------------------------------

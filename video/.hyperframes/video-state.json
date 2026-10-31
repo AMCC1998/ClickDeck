@@ -1950,5 +1950,16 @@
         "attribution": "unversioned"
       }
     ]
-  }
+  },
+  "renders": {
+    "latest": {
+      "id": "ea9398eb-cab6-4816-9016-95a1c609bc26",
+      "completedAt": 1793395909316,
+      "output": "G:\\andre\\ClickDeck\\video\\renders\\clickdeck-9x16.mp4",
+      "status": "completed",
+      "revision": null
+    },
+    "retainedRevisions": []
+  },
+  "pendingArtifactCleanup": []
 }

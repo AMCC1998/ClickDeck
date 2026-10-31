@@ -1034,5 +1034,16 @@
         "attribution": "unversioned"
       }
     ]
-  }
+  },
+  "renders": {
+    "latest": {
+      "id": "a0a827b7-1158-4f00-88e9-a0ab5a0c1bde",
+      "completedAt": 1793395984482,
+      "output": "G:\\andre\\ClickDeck\\video-16x9\\renders\\clickdeck-16x9.mp4",
+      "status": "completed",
+      "revision": null
+    },
+    "retainedRevisions": []
+  },
+  "pendingArtifactCleanup": []
 }

@@ -1,7 +1,12 @@
-﻿__pycache__/
+__pycache__/
 *.pyc
 app/build/
 app/dist/
 app/*.lnk
 fotografias/
 *.CR3
+# configuração pessoal (nunca para o repositório)
+config.json
+config-*.json
+ClickDeck-config*.json
+backups/

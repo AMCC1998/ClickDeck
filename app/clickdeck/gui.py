@@ -13,6 +13,7 @@ import customtkinter as ctk
 from .icon import save_ico
 from . import actions, foreground
 from .listener import port_labels
+from . import config as cfgmod
 from .config import (ACTION_TYPES, COLOR_NAMES, LED_MODES, MAX_PROFILES, MODES, NUM_BUTTONS, PALETTE,
                      empty_profile, resolve)
 
@@ -210,6 +211,10 @@ class ConfigWindow:
         if cfg["autostart"]:
             self.autostart.select()
         self.autostart.pack(side="right")
+        ctk.CTkButton(row, text="⬆ Importar", width=92, height=30, fg_color=FIELD, hover_color=CARD_HOVER,
+                      command=self._import).pack(side="right", padx=(0, 18))
+        ctk.CTkButton(row, text="⬇ Exportar", width=92, height=30, fg_color=FIELD, hover_color=CARD_HOVER,
+                      command=self._export).pack(side="right", padx=(0, 6))
 
         lights = ctk.CTkFrame(left, fg_color=CARD, corner_radius=14)
         lights.pack(fill="x", pady=(10, 0))
@@ -526,6 +531,72 @@ class ConfigWindow:
     def _settings_changed(self):
         self._refresh_mode()
         self._schedule_save(delay=100)
+
+    # ---- exportar / importar ------------------------------------------------------
+
+    def _export(self):
+        self.flush_save()
+        folder = cfgmod.documents_dir() / "ClickDeck"
+        try:
+            folder.mkdir(parents=True, exist_ok=True)
+        except OSError:
+            folder = cfgmod.documents_dir()
+        path = filedialog.asksaveasfilename(
+            parent=self.root, title="Exportar configuração", initialdir=str(folder),
+            initialfile=time.strftime("ClickDeck-config-%Y%m%d.json"), defaultextension=".json",
+            filetypes=[("Configuração do ClickDeck", "*.json")])
+        if not path:
+            return
+        try:
+            cfgmod.export_config(self.get_config(), path)
+        except OSError as e:
+            self.set_status(f"Não consegui exportar: {e}", error=True)
+            return
+        self.set_status(f"Configuração exportada para {path}")
+
+    def _import(self):
+        folder = cfgmod.documents_dir() / "ClickDeck"
+        path = filedialog.askopenfilename(
+            parent=self.root, title="Importar configuração",
+            initialdir=str(folder if folder.exists() else cfgmod.documents_dir()),
+            filetypes=[("Configuração do ClickDeck", "*.json"), ("Todos os ficheiros", "*.*")])
+        if not path:
+            return
+        try:
+            new = cfgmod.import_config(path)
+        except ValueError as e:
+            self.set_status(str(e), error=True)
+            return
+        if not messagebox.askyesno(
+                "Importar configuração",
+                f"Substituir os perfis, teclas, cores e luzes atuais pelos de\n{os.path.basename(path)}?\n\n"
+                "A configuração atual fica guardada numa cópia de segurança.", parent=self.root):
+            return
+        self.flush_save()
+        cfgmod.backup_now()
+        self.load_config(new)
+        self._save_now()
+        self.set_status("Configuração importada. Confirma os caminhos dos programas, que podem ser outros neste PC.")
+
+    def load_config(self, cfg: dict) -> None:
+        """Substitui perfis, cores e luzes (a porta e o arranque com o Windows mantêm-se)."""
+        self._stop_recording()
+        self.profiles = copy.deepcopy(cfg["profiles"])
+        self.colors = list(cfg["colors"])
+        leds = cfg["leds"]
+        self._led_color = leds["color"]
+        self._led_colors = list(leds["colors"])
+        self.led_menu.set(LED_MODES[leds["mode"]])
+        self.led_bright.set(leds["brightness"])
+        (self.led_reactive.select if leds["reactive"] else self.led_reactive.deselect)()
+        self.mode_menu.set(MODES[cfg["mode"]])
+        self.pidx = 0
+        self.sel = 0
+        self.data = self.profiles[0]["buttons"]
+        self._refresh_lights()
+        self._refresh_profiles()
+        self._refresh_caps()
+        self.select(0)
 
     def _port_value(self) -> str:
         text = self.port_box.get().strip()

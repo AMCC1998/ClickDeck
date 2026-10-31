@@ -1,6 +1,7 @@
 """Configuração em JSON (%APPDATA%\\ClickDeck\\config.json)."""
 
 import copy
+import ctypes
 import json
 import os
 import re
@@ -178,7 +179,7 @@ BACKUP_EVERY = 600      # segundos entre cópias de segurança
 BACKUP_KEEP = 30
 
 
-def _backup(path: Path) -> None:
+def _backup(path: Path, force: bool = False) -> None:
     """Guarda a versão anterior em ClickDeck\backups (no máximo uma de 10 em 10 minutos, as últimas 30)."""
     if not path.exists():
         return
@@ -186,13 +187,52 @@ def _backup(path: Path) -> None:
     try:
         folder.mkdir(exist_ok=True)
         old = sorted(folder.glob("config-*.json"))
-        if old and time.time() - old[-1].stat().st_mtime < BACKUP_EVERY:
+        if old and not force and time.time() - old[-1].stat().st_mtime < BACKUP_EVERY:
             return
         shutil.copy2(path, folder / time.strftime("config-%Y%m%d-%H%M%S.json"))
         for stale in sorted(folder.glob("config-*.json"))[:-BACKUP_KEEP]:
             stale.unlink()
     except OSError:
         pass                                    # a cópia é um extra: nunca impede de gravar
+
+
+def backup_now() -> None:
+    """Cópia de segurança imediata da configuração atual (antes de importar outra)."""
+    _backup(config_path(), force=True)
+
+
+def documents_dir() -> Path:
+    """Pasta Documentos do utilizador (segue o redirecionamento do OneDrive, se houver)."""
+    try:
+        buf = ctypes.create_unicode_buffer(260)
+        if ctypes.windll.shell32.SHGetFolderPathW(None, 5, None, 0, buf) == 0 and buf.value:   # CSIDL_PERSONAL
+            return Path(buf.value)
+    except (OSError, AttributeError):
+        pass
+    return Path.home() / "Documents"
+
+
+EXPORT_KEYS = ("mode", "colors", "leds", "profiles")        # a porta COM e o arranque são de cada PC
+
+
+def export_config(cfg: dict, path) -> None:
+    data = {"clickdeck_config": 1, "config": {k: cfg[k] for k in EXPORT_KEYS}}
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+
+
+def import_config(path) -> dict:
+    """Lê um ficheiro exportado. Levanta ValueError se não for uma configuração do ClickDeck."""
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            raw = json.load(f)
+    except (OSError, ValueError) as e:
+        raise ValueError(f"Não consegui ler o ficheiro ({e}).") from e
+    if isinstance(raw, dict) and isinstance(raw.get("config"), dict):
+        raw = raw["config"]
+    if not isinstance(raw, dict) or not isinstance(raw.get("profiles"), list) or not raw["profiles"]:
+        raise ValueError("Este ficheiro não é uma configuração do ClickDeck.")
+    return normalize(raw)
 
 
 def save(cfg: dict) -> None:

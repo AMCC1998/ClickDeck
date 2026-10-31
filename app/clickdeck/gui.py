@@ -2,6 +2,7 @@
 
 import copy
 import os
+import re
 import tempfile
 import time
 import tkinter as tk
@@ -337,6 +338,10 @@ class ConfigWindow:
                                       hover_color=CARD_HOVER, command=self._side_action)
         self.detect_btn = ctk.CTkButton(self.row1, text="🎯", width=40, height=36, fg_color=FIELD,
                                         hover_color=CARD_HOVER, command=self._detect_target)
+        self.hk_frame = ctk.CTkFrame(self.fields, fg_color="transparent")
+        self._hk = [[["", ""]]]            # toques alternativos > passos [atalho, espera em segundos]
+        self._rec_entry = None
+        self._rec_btn = None
         self.l2 = ctk.CTkLabel(self.fields, text="", text_color=MUTED, font=ctk.CTkFont(size=12))
         self.e2 = ctk.CTkEntry(self.fields, fg_color=FIELD, border_width=0, height=36)
         self.e2.bind("<KeyRelease>", lambda _e: self._edited())
@@ -356,6 +361,8 @@ class ConfigWindow:
         self._set_entry(self.e_name, b["label"])
         self._set_entry(self.e1, b["target"])
         self._set_entry(self.e2, b["extra"])
+        if b["type"] == "hotkey":
+            self._hk_load(b["target"])
         self._loading = False
         self._refresh_editor()
         self._refresh_caps()
@@ -390,13 +397,17 @@ class ConfigWindow:
         self.test_btn.configure(fg_color=accent, text_color=_on(accent),
                                 hover_color=_blend(accent, "#ffffff", 0.2))
 
-        for w in (self.l1, self.row1, self.l2, self.e2):
+        for w in (self.l1, self.row1, self.hk_frame, self.l2, self.e2):
             w.pack_forget()
         self.side_btn.pack_forget()
         self.detect_btn.pack_forget()
         _, label1, label2 = ACTION_TYPES[b["type"]]
         ph1, ph2 = PLACEHOLDERS.get(b["type"], ("", ""))
-        if label1:
+        if label1 and b["type"] == "hotkey":
+            self.l1.configure(text=label1)
+            self.l1.pack(anchor="w", pady=(0, 4))
+            self.hk_frame.pack(fill="x")
+        elif label1:
             self.l1.configure(text=label1)
             self.l1.pack(anchor="w", pady=(0, 4))
             self.e1.configure(placeholder_text=ph1)
@@ -406,8 +417,8 @@ class ConfigWindow:
                 self.side_btn.pack(side="left", padx=(6, 0))
                 if b["type"] == "focus":
                     self.detect_btn.pack(side="left", padx=(6, 0))
-            elif b["type"] in ("hotkey", "click"):
-                self.side_btn.configure(text="⏺" if b["type"] == "hotkey" else "🎯")
+            elif b["type"] == "click":
+                self.side_btn.configure(text="🎯")
                 self.side_btn.pack(side="left", padx=(6, 0))
         if label2:
             self.l2.configure(text=label2)
@@ -422,7 +433,10 @@ class ConfigWindow:
             return
         b = self.data[self.sel]
         b["label"] = self.e_name.get().strip()[:24]
-        b["target"] = self.e1.get().strip() if b["type"] != "none" else ""
+        if b["type"] == "hotkey":
+            b["target"] = self._hk_text()
+        else:
+            b["target"] = self.e1.get().strip() if b["type"] != "none" else ""
         b["extra"] = self.e2.get().strip() if ACTION_TYPES[b["type"]][2] else ""
         self._refresh_caps()
         self._schedule_save()
@@ -430,6 +444,8 @@ class ConfigWindow:
     def _pick_type(self, kind):
         self._stop_recording()
         self.data[self.sel]["type"] = kind
+        if kind == "hotkey":
+            self._hk_load(self.e1.get())
         self._edited()
         self._refresh_editor()
 
@@ -447,15 +463,7 @@ class ConfigWindow:
 
     def _side_action(self):
         kind = self.data[self.sel]["type"]
-        if kind == "hotkey":
-            if self._recording:
-                self._stop_recording()
-            else:
-                self._recording = True
-                self.side_btn.configure(text="…", fg_color=self.colors[self.sel])
-                self.set_status("Prime o atalho que queres gravar (ex: Ctrl+Shift+M).")
-                self.root.focus_set()
-        elif kind == "click":
+        if kind == "click":
             self._record_click()
         else:
             path = filedialog.askopenfilename(title="Escolher programa ou ficheiro")
@@ -503,7 +511,12 @@ class ConfigWindow:
     def _stop_recording(self):
         if self._recording:
             self._recording = False
-            self.side_btn.configure(text="⏺", fg_color=FIELD)
+            if self._rec_btn is not None:
+                try:
+                    self._rec_btn.configure(text="⏺", fg_color=FIELD)
+                except Exception:
+                    pass
+            self._rec_btn = self._rec_entry = None
 
     def _on_keypress(self, event):
         if not self._recording or event.keysym in _MODIFIER_KEYSYMS:
@@ -518,11 +531,122 @@ class ConfigWindow:
             self.set_status(f"A tecla «{event.keysym}» não é suportada em atalhos.", error=True)
             return "break"
         mods = [name for bit, name in ((0x4, "ctrl"), (0x20000, "alt"), (0x1, "shift")) if event.state & bit]
-        self._set_entry(self.e1, "+".join(mods + [key]))
+        entry = self._rec_entry
         self._stop_recording()
+        self._set_entry(entry, "+".join(mods + [key]))
         self.set_status("")
-        self._edited()
+        self._hk_changed()
         return "break"
+
+    # ---- editor de atalhos: toques (alternativas) > passos (atalho + espera) -------------------
+    # Fica guardado no mesmo texto de sempre: «a,0.5; b | c» (| separa toques, ; passos, ,s a espera).
+
+    @staticmethod
+    def _hk_parse(text: str) -> list:
+        alts = []
+        for alt in text.split("|"):
+            steps = []
+            for part in alt.split(";"):
+                part = part.strip()
+                if not part:
+                    continue
+                m = re.fullmatch(r"[wW]\s*(\d+)", part)
+                if m:                                       # «w300» antigo: passa a espera do passo anterior
+                    if steps:
+                        total = float(steps[-1][1] or 0) + int(m.group(1)) / 1000
+                        steps[-1][1] = f"{total:g}"
+                    continue
+                combo, _, delay = part.partition(",")
+                steps.append([combo.strip(), delay.strip().replace(",", ".")])
+            if steps:
+                alts.append(steps)
+        return alts or [[["", ""]]]
+
+    def _hk_text(self) -> str:
+        alts = []
+        for steps in self._hk:
+            parts = [f"{c},{d}" if d else c for c, d in steps if c]
+            if parts:
+                alts.append("; ".join(parts))
+        return " | ".join(alts)
+
+    def _hk_load(self, text: str) -> None:
+        self._hk = self._hk_parse(text)
+        self._hk_build()
+
+    def _hk_changed(self) -> None:
+        for steps, rows in zip(self._hk, self._hk_rows):
+            for step, (e_combo, e_delay) in zip(steps, rows):
+                step[0], step[1] = e_combo.get().strip(), e_delay.get().strip().replace(",", ".")
+        self._edited()
+
+    def _hk_structure(self, fn) -> None:
+        self._stop_recording()
+        self._hk_changed()
+        fn()
+        self._hk_build()
+        self._edited()
+
+    def _hk_build(self) -> None:
+        for w in self.hk_frame.winfo_children():
+            w.destroy()
+        self._hk_rows = []
+        many = len(self._hk) > 1
+        for ai, steps in enumerate(self._hk):
+            head = ctk.CTkFrame(self.hk_frame, fg_color="transparent")
+            head.pack(fill="x", pady=(0 if ai == 0 else 12, 4))
+            ctk.CTkLabel(head, text=f"{ai + 1}.º toque" if many else "Atalhos (em sequência)",
+                         text_color="#dfe3ee", font=ctk.CTkFont(size=12, weight="bold")).pack(side="left")
+            if many:
+                ctk.CTkLabel(head, text="  — cada toque na tecla executa o seguinte, em ciclo",
+                             text_color=MUTED, font=ctk.CTkFont(size=11)).pack(side="left")
+                ctk.CTkButton(head, text="✕", width=26, height=22, fg_color=FIELD, hover_color=CARD_HOVER,
+                              command=lambda a=ai: self._hk_structure(lambda: self._hk.pop(a))).pack(side="right")
+            rows = []
+            for si, step in enumerate(steps):
+                row = ctk.CTkFrame(self.hk_frame, fg_color="transparent")
+                row.pack(fill="x", pady=2)
+                e_combo = ctk.CTkEntry(row, fg_color=FIELD, border_width=0, height=34,
+                                       placeholder_text="ex: ctrl+alt+shift+m")
+                e_combo.pack(side="left", fill="x", expand=True)
+                e_combo.insert(0, step[0])
+                e_combo.bind("<KeyRelease>", lambda _e: self._hk_changed())
+                rec = ctk.CTkButton(row, text="⏺", width=34, height=34, fg_color=FIELD, hover_color=CARD_HOVER)
+                rec.configure(command=lambda b=rec, e=e_combo: self._hk_record(b, e))
+                rec.pack(side="left", padx=(5, 0))
+                last = si == len(steps) - 1
+                e_delay = ctk.CTkEntry(row, fg_color=FIELD, border_width=0, height=34, width=58,
+                                       placeholder_text="0.15" if not last else "—",
+                                       state="normal")
+                e_delay.pack(side="left", padx=(5, 0))
+                e_delay.insert(0, step[1])
+                e_delay.bind("<KeyRelease>", lambda _e: self._hk_changed())
+                ctk.CTkLabel(row, text="s", text_color=MUTED, width=12).pack(side="left", padx=(3, 0))
+                if len(steps) > 1:
+                    ctk.CTkButton(row, text="✕", width=26, height=34, fg_color=FIELD, hover_color=CARD_HOVER,
+                                  command=lambda a=ai, s=si: self._hk_structure(lambda: self._hk[a].pop(s))
+                                  ).pack(side="left", padx=(5, 0))
+                rows.append((e_combo, e_delay))
+            self._hk_rows.append(rows)
+            ctk.CTkButton(self.hk_frame, text="＋ outro atalho (a seguir)", height=26, fg_color="transparent",
+                          hover_color=CARD_HOVER, text_color=MUTED, anchor="w", font=ctk.CTkFont(size=12),
+                          command=lambda a=ai: self._hk_structure(lambda: self._hk[a].append(["", ""]))
+                          ).pack(fill="x", pady=(2, 0))
+        ctk.CTkButton(self.hk_frame, text="＋ toque alternativo (alterna a cada toque)", height=28, fg_color=FIELD,
+                      hover_color=CARD_HOVER, font=ctk.CTkFont(size=12),
+                      command=lambda: self._hk_structure(lambda: self._hk.append([["", ""]]))
+                      ).pack(fill="x", pady=(12, 0))
+
+    def _hk_record(self, btn, entry) -> None:
+        if self._recording and self._rec_entry is entry:
+            self._stop_recording()
+            return
+        self._stop_recording()
+        self._recording = True
+        self._rec_entry, self._rec_btn = entry, btn
+        btn.configure(text="…", fg_color=self.colors[self.sel])
+        self.set_status("Prime o atalho que queres gravar (ex: Ctrl+Shift+M).")
+        self.root.focus_set()
 
     # ---- definições gerais ------------------------------------------------------
 

@@ -157,14 +157,55 @@ def normalize(raw) -> dict:
     return cfg
 
 
+def _log(msg: str) -> None:
+    """Diário curto em ClickDeck\\clickdeck.log (para perceber o que aconteceu se a config aparecer desatualizada)."""
+    try:
+        log = config_path().with_name("clickdeck.log")
+        if log.exists() and log.stat().st_size > 200_000:
+            log.replace(log.with_suffix(".log.old"))
+        with open(log, "a", encoding="utf-8") as f:
+            f.write(time.strftime("%Y-%m-%d %H:%M:%S ") + msg + "\n")
+    except OSError:
+        pass
+
+
+def _describe(cfg: dict) -> str:
+    return ", ".join(f"{p['name']}:{sum(1 for b in p['buttons'] if b['type'] != 'none')}" for p in cfg["profiles"])
+
+
+def _newest_backup():
+    """Cópia de segurança com a edição mais recente (a cópia mantém a data do ficheiro de origem)."""
+    try:
+        files = list((config_path().parent / "backups").glob("config-*.json"))
+        return max(files, key=lambda p: p.stat().st_mtime) if files else None
+    except (OSError, ValueError):
+        return None
+
+
 def load():
     """Devolve (config, aviso). Nunca levanta exceção: ficheiro estragado -> backup + defaults."""
     path = config_path()
     if not path.exists():
+        _log(f"load: {path} não existe, valores por omissão")
         return copy.deepcopy(DEFAULT_CONFIG), None
     try:
         with open(path, "r", encoding="utf-8") as f:
-            return normalize(json.load(f)), None
+            cfg = normalize(json.load(f))
+        mtime = path.stat().st_mtime
+        _log(f"load: {path} ({path.stat().st_size} B, editado {time.strftime('%d %H:%M:%S', time.localtime(mtime))}) "
+             f"-> {_describe(cfg)}")
+        newest = _newest_backup()
+        if newest is not None and newest.stat().st_mtime > mtime + 2:
+            # o ficheiro principal voltou a uma versão mais antiga do que uma cópia de segurança: usa a cópia
+            try:
+                with open(newest, "r", encoding="utf-8") as f:
+                    better = normalize(json.load(f))
+            except (OSError, ValueError):
+                return cfg, None
+            _log(f"load: ficheiro desatualizado, restaurado de {newest.name} -> {_describe(better)}")
+            return better, ("O ficheiro de configuração estava desatualizado; foi restaurada a versão mais "
+                            f"recente das cópias de segurança ({newest.name}).")
+        return cfg, None
     except (OSError, ValueError) as e:
         warning = f"Configuração inválida ({e}); foram usados os valores por omissão."
         try:
@@ -187,8 +228,13 @@ def _backup(path: Path, force: bool = False) -> None:
     try:
         folder.mkdir(exist_ok=True)
         old = sorted(folder.glob("config-*.json"))
-        if old and not force and time.time() - old[-1].stat().st_mtime < BACKUP_EVERY:
-            return
+        if old and not force:
+            try:
+                last = time.mktime(time.strptime(old[-1].stem, "config-%Y%m%d-%H%M%S"))
+            except ValueError:
+                last = 0
+            if time.time() - last < BACKUP_EVERY:
+                return
         shutil.copy2(path, folder / time.strftime("config-%Y%m%d-%H%M%S.json"))
         for stale in sorted(folder.glob("config-*.json"))[:-BACKUP_KEEP]:
             stale.unlink()
@@ -246,3 +292,4 @@ def save(cfg: dict) -> None:
         f.flush()
         os.fsync(f.fileno())                    # garante que está no disco antes de trocar o ficheiro
     tmp.replace(path)
+    _log(f"save: {path.stat().st_size} B -> {_describe(cfg)}")

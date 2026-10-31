@@ -590,6 +590,12 @@ class ConfigWindow:
             self.root.after_cancel(self._save_job)
         self._save_job = self.root.after(delay, self._save_now)
 
+    def flush_save(self):
+        """Grava já o que estiver pendente (ao fechar, esconder ou sair)."""
+        if self._save_job:
+            self.root.after_cancel(self._save_job)
+            self._save_now()
+
     def _save_now(self):
         self._save_job = None
         self._on_change(self.get_config())

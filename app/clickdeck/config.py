@@ -4,6 +4,8 @@ import copy
 import json
 import os
 import re
+import shutil
+import time
 from pathlib import Path
 
 APP_NAME = "ClickDeck"
@@ -172,11 +174,35 @@ def load():
         return copy.deepcopy(DEFAULT_CONFIG), warning
 
 
+BACKUP_EVERY = 600      # segundos entre cópias de segurança
+BACKUP_KEEP = 30
+
+
+def _backup(path: Path) -> None:
+    """Guarda a versão anterior em ClickDeck\backups (no máximo uma de 10 em 10 minutos, as últimas 30)."""
+    if not path.exists():
+        return
+    folder = path.parent / "backups"
+    try:
+        folder.mkdir(exist_ok=True)
+        old = sorted(folder.glob("config-*.json"))
+        if old and time.time() - old[-1].stat().st_mtime < BACKUP_EVERY:
+            return
+        shutil.copy2(path, folder / time.strftime("config-%Y%m%d-%H%M%S.json"))
+        for stale in sorted(folder.glob("config-*.json"))[:-BACKUP_KEEP]:
+            stale.unlink()
+    except OSError:
+        pass                                    # a cópia é um extra: nunca impede de gravar
+
+
 def save(cfg: dict) -> None:
     """Grava a config (levanta OSError se não conseguir)."""
     path = config_path()
     path.parent.mkdir(parents=True, exist_ok=True)
+    _backup(path)
     tmp = path.with_suffix(".json.tmp")
     with open(tmp, "w", encoding="utf-8") as f:
         json.dump(cfg, f, indent=2, ensure_ascii=False)
+        f.flush()
+        os.fsync(f.fileno())                    # garante que está no disco antes de trocar o ficheiro
     tmp.replace(path)

@@ -37,7 +37,7 @@ class App:
         self.leds.start()
         self.leds.apply(self.cfg)
 
-        root.protocol("WM_DELETE_WINDOW", root.withdraw)  # fechar = ficar na bandeja
+        root.protocol("WM_DELETE_WINDOW", self._close_window)  # fechar = ficar na bandeja
         self.listener.start(self.cfg["mode"], self.cfg["serial_port"])
         self.win.set_listener_status("a iniciar…")
         if warning:
@@ -145,7 +145,12 @@ class App:
             self._update_active_profile()
         self.root.after(100, self.poll)
 
+    def _close_window(self) -> None:
+        self.win.flush_save()
+        self.root.withdraw()
+
     def quit(self) -> None:
+        self.win.flush_save()
         self.listener.stop()
         self.leds.stop()
         self.tray.stop()
